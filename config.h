@@ -18,3 +18,5 @@
 #define MAX_CATS (1024)
 
 typedef float Weight;
+
+typedef int NumCats;

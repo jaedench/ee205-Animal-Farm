@@ -19,7 +19,7 @@
 
 #define MAX_LENGTH (50)
 
-extern int currentCats;
+extern NumCats currentCats;
 
 enum Gender {UNKNOWN_GENDER, MALE, FEMALE};
 
