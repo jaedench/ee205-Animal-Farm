@@ -11,11 +11,13 @@
 
 #pragma once
 
+#include "config.h"
+
 extern bool updateCatName(const int index, const char newName[]);
 
 extern bool fixCat(const int index);
 
-extern bool updateCatWeight(const int index, const float newWeight);
+extern bool updateCatWeight(const int index, const Weight newWeight);
 
 extern bool updateCatCollar1(const int index, const enum Color newColor1);
 

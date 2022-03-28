@@ -16,3 +16,5 @@
 #define PROGRAM_NAME "animalfarm1"
 
 #define MAX_CATS (1024)
+
+typedef float Weight;

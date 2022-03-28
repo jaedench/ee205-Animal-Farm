@@ -22,7 +22,7 @@
 //#define DEBUG
 
 
-bool addCat(const char name[], const enum Gender gender, const enum Breed breed, const bool isFixed, const float weight, const enum Color collarColor1, const enum Color collarColor2, const unsigned long long license) {
+bool addCat(const char name[], const enum Gender gender, const enum Breed breed, const bool isFixed, const Weight weight, const enum Color collarColor1, const enum Color collarColor2, const unsigned long long license) {
     if (currentCats >= MAX_CATS) {
         fprintf(stderr,"%s: Too many cats! Current number of cats exceeds maximum cats allowed in database.\n", PROGRAM_NAME);
         return false;

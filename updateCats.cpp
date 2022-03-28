@@ -70,7 +70,7 @@ bool fixCat(const int index) {
 }
 
 
-bool updateCatWeight(const int index, const float newWeight) {
+bool updateCatWeight(const int index, const Weight newWeight) {
     if (isValidIndex(index) == false) {
         printf("%s: Invalid index!\n", PROGRAM_NAME);
         return false;

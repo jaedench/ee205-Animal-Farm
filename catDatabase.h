@@ -32,7 +32,7 @@ struct Cat {
     enum               Gender gender;
     enum               Breed  breed;
     bool                      isFixed;
-    float                     weight;
+    Weight                     weight;
     enum               Color  collarColor1;
     enum               Color  collarColor2;
     unsigned long long        license;

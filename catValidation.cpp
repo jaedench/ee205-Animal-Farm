@@ -70,7 +70,7 @@ bool isValidName( const char checkName[] ) {
 }
 
 
-bool isValidWeight( const float checkWeight ) {
+bool isValidWeight( const Weight checkWeight ) {
     if (checkWeight <= 0) {
         fprintf(stderr, "%s: No cat detected! Weight must be greater than 0.\n", PROGRAM_NAME);
         return false;

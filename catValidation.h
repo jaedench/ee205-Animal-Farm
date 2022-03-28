@@ -11,6 +11,8 @@
 
 #pragma once
 
+#include "config.h"
+
 extern bool nameExists( const int index, const char checkName[] );
 
 extern bool nameEmpty( const int index );
@@ -19,4 +21,4 @@ extern bool isValidIndex( const int index );
 
 extern bool isValidName( const char checkName[] );
 
-extern bool isValidWeight( const float checkWeight );
+extern bool isValidWeight( const Weight checkWeight );
