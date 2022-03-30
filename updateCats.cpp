@@ -9,6 +9,8 @@
 /// @date   19_Mar_2022
 ///////////////////////////////////////////////////////////////////////////////
 
+#include <iostream>
+
 #include <stdio.h>
 #include <stdbool.h>
 #include <string.h>
@@ -26,19 +28,19 @@ bool updateCatName(const int index, const char newName[]) {
     }
 
     if (isValidIndex(index) == false) {
-        printf("%s: Invalid index!\n", PROGRAM_NAME);
+        std::cout << PROGRAM_NAME << ": Invalid index!\n" << std::endl;
         return false;
     }
 
     if (isValidName(newName) == false) {
-        printf("%s: Invalid name!\n", PROGRAM_NAME);
+        std::cout << PROGRAM_NAME << ": Invalid name!\n" << std::endl;
         return false;
     }
 
     int i = 0;
     while (i <= MAX_CATS) {
         if (nameExists(i, newName) == false) {
-            printf("%s: Name exists!\n", PROGRAM_NAME);
+            std::cout << PROGRAM_NAME << ": Name exists!\n" << std::endl;
             return false;
         }
         i++;
@@ -46,7 +48,7 @@ bool updateCatName(const int index, const char newName[]) {
 
     strcpy(cats[index].name, newName);
 
-    printf("Cat at index [%d] has been changed to [%s]!\n", index, newName);
+    std::cout << "Cat at index [" << index << "] has been changed to [" << newName << "]!\n" << std::endl;
 
     return true;
 }
@@ -55,7 +57,7 @@ bool updateCatName(const int index, const char newName[]) {
 
 bool fixCat(const int index) {
     if (isValidIndex(index) == false) {
-        printf("%s: Invalid index!\n", PROGRAM_NAME);
+        std::cout << PROGRAM_NAME << ": Invalid index!\n" << std::endl;
         return false;
     }
 
@@ -65,24 +67,24 @@ bool fixCat(const int index) {
     }
 
     cats[index].isFixed = true;
-    printf("Cat at index [%d] is fixed now!\n", index);
+    std::cout << "Cat at index [" << index << "] is fixed now!\n" << std::endl;
     return true;
 }
 
 
 bool updateCatWeight(const int index, const Weight newWeight) {
     if (isValidIndex(index) == false) {
-        printf("%s: Invalid index!\n", PROGRAM_NAME);
+        std::cout << PROGRAM_NAME << ": Invalid index!\n" << std::endl;
         return false;
     }
 
     if (isValidWeight(newWeight) == false) {
-        printf("%s: Invalid weight!\n", PROGRAM_NAME);
+        std::cout << PROGRAM_NAME << ": Invalid weight!\n" << std:: endl;
         return false;
     }
 
     cats[index].weight = newWeight;
-    printf("Cat weight at index [%d] has been changed to [%f]\n", index, newWeight);
+    std::cout << "Cat weight at index [" << index << "] has been changed to [" << newWeight << "]\n" << std::endl;
     return true;
 }
 

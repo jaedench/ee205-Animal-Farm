@@ -9,6 +9,8 @@
 /// @date   19_Mar_2022
 ///////////////////////////////////////////////////////////////////////////////
 
+#include <iostream>
+
 #include <stdbool.h>
 #include <stdio.h>
 #include <string.h>
@@ -28,11 +30,11 @@ bool addCat(const char name[], const enum Gender gender, const enum Breed breed,
         return false;
     }
     if (isValidName(name) == false) {
-        printf("%s: Invalid name!\n", PROGRAM_NAME);
+        std::cout << PROGRAM_NAME << ": Invalid name!\n" << std::endl;
         return false;
     }
     if (isValidWeight(weight) == false) {
-        printf("%s: Invalid weight!\n", PROGRAM_NAME);
+        std::cout << PROGRAM_NAME << ": Invalid weight!\n" << std::endl;
         return false;
     }
 
@@ -56,7 +58,7 @@ bool addCat(const char name[], const enum Gender gender, const enum Breed breed,
     cats[currentCats].license = license;
 
     currentCats += 1;
-    printf("Cat successfully added!\n");
+    std::cout << "Cat successfully added!\n" << std::endl;
     return true;
 
 #ifdef DEBUG

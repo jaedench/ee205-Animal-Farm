@@ -9,6 +9,8 @@
 /// @date   19_Mar_2022
 ///////////////////////////////////////////////////////////////////////////////
 
+#include <iostream>
+
 #include <stdio.h>
 #include <string.h>
 
@@ -72,16 +74,16 @@ int printCat(const int index) {
         return 1;
     }
 
-    printf("cat index = [%d] name=[%s] gender=[%s] breed=[%s] isFixed=[%d] weight=[%f] collar1=[%s] collar2=[%s] license=[%llu]\n",
-           index,
-           cats[index].name,
-           genderName(cats[index].gender),
-           breedName(cats[index].breed),
-           cats[index].isFixed,
-           cats[index].weight,
-           colorName(cats[index].collarColor1),
-           colorName(cats[index].collarColor2),
-           cats[index].license);
+    std::cout << "cat index = [" << index << "] "
+              << "name=["        << cats[index].name                          << "] "
+              << "gender=["      << genderName(cats[index].gender)    << "] "
+              << "breed=["       << breedName(cats[index].breed)       << "] "
+              << "isFixed=["     << cats[index].isFixed                       << "] "
+              << "weight=["      << cats[index].weight                        << "] "
+              << "collar1=["     << colorName(cats[index].collarColor1) << "] "
+              << "collar2=["     << colorName(cats[index].collarColor2) << "] "
+              << "license=["     << cats[index].license                       << "] "
+              << std::endl;
 
     return 0;
 }
@@ -96,16 +98,16 @@ int printAllCats() {
 
     //int i;
     for (int i = 0; i < currentCats; ++i) {
-        printf("cat index =[%d] name=[%s] gender=[%s] breed=[%s] isFixed=[%d] weight=[%f] collar1=[%s] collar2[%s] license[%llu]\n",
-               i,
-               cats[i].name,
-               genderName(cats[i].gender),
-               breedName(cats[i].breed),
-               cats[i].isFixed,
-               cats[i].weight,
-               colorName(cats[i].collarColor1),
-               colorName(cats[i].collarColor2),
-               cats[i].license);
+        std::cout << "cat index =[" << i << "] "
+                  << "name=[" << cats[i].name << "] "
+                  << "gender=[" << genderName(cats[i].gender) << "] "
+                  << "breed=[" << breedName(cats[i].breed) << "] "
+                  << "isFixed=[" << cats[i].isFixed << "] "
+                  << "weight=[" << cats[i].weight << "] "
+                  << "collar1=[" << colorName(cats[i].collarColor1) << "] "
+                  << "collar2[" << colorName(cats[i].collarColor2) << "] "
+                  << "license[" << cats[i].license << "]"
+                  << std::endl;
     }
     return 0;
 }
@@ -125,7 +127,7 @@ int findCat(const char name[]) {
 
     for (i = 0; i < currentCats; ++i) {
         if (strcmp(name, cats[i].name) == 0) {
-            printf("Match with cat at index [%d]\n", i);
+            std::cout << "Match with cat at index " << i << "\n" << std::endl;
             return i;
         }
     }

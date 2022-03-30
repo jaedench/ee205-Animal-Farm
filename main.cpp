@@ -10,6 +10,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 #include <iostream>
+
 #include <stdio.h>
 #include <stdlib.h> //For EXIT_SUCCESS / EXIT_FAILURE
 #include <assert.h> //For assert()
@@ -31,7 +32,8 @@
 
 
 int main() {
-    printf("Welcome to %s\n",PROGRAM_TITLE);
+    std::cout << "Welcome to " << PROGRAM_TITLE << "\n" << std::endl;
+
 
     //initializeDatabase();
 
@@ -97,7 +99,7 @@ int main() {
     printAllCats() ;
 
 
-    printf( "Done with %s\n", PROGRAM_TITLE ) ;
+    std::cout << "Done with " PROGRAM_TITLE << "\n" << std::endl;
 
     return( EXIT_SUCCESS ) ;
 }

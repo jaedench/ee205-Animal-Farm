@@ -9,6 +9,8 @@
 /// @date   19_Mar_2022
 ///////////////////////////////////////////////////////////////////////////////
 
+#include <iostream>
+
 #include <stdio.h>
 #include <string.h>
 #include <stdbool.h>
@@ -20,7 +22,7 @@
 bool deleteAllCats() {
     memset(cats, 0, sizeof(cats));
     currentCats = 0;
-    printf("Deleted all cats\n");
+    std::cout << "Deleted all cats\n" << std::endl;
 
     return true;
 }
