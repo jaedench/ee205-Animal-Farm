@@ -32,7 +32,7 @@
 */
 
 int main() {
-    std::cout << "Welcome to " << PROGRAM_TITLE << "\n" << std::endl;
+    std::cout << "Starting " << PROGRAM_TITLE << "\n" << std::endl;
 
 /*
     //initializeDatabase();

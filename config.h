@@ -12,11 +12,16 @@
 #pragma once
 #include <limits.h>
 
-#define PROGRAM_TITLE "Animal Farm 1"
-#define PROGRAM_NAME "animalfarm1"
+#define PROGRAM_TITLE "Animal Farm 2"
 
 #define MAX_CATS (1024)
 
 typedef float Weight;
 
 typedef int NumCats;
+
+enum Gender {UNKNOWN_GENDER, MALE, FEMALE};
+
+enum Breed {UNKNOWN_BREED, MAINE_COON, MANX, SHORTHAIR, PERSIAN, SPHYNX};
+
+enum Color {BLACK, WHITE, RED, BLUE, GREEN, PINK};

@@ -22,25 +22,6 @@
 
 extern NumCats currentCats;
 
-enum Gender {UNKNOWN_GENDER, MALE, FEMALE};
-
-enum Breed {UNKNOWN_BREED, MAINE_COON, MANX, SHORTHAIR, PERSIAN, SPHYNX};
-
-enum Color {BLACK, WHITE, RED, BLUE, GREEN, PINK};
-
-struct Cat {
-    char                     name[MAX_LENGTH];
-    enum               Gender gender;
-    enum               Breed  breed;
-    bool                      isFixed;
-    Weight                     weight;
-    enum               Color  collarColor1;
-    enum               Color  collarColor2;
-    unsigned long long        license;
-};
-
-extern struct Cat cats[MAX_CATS];
-
 /// The head pointer to a linked list of cats
 extern Cat* catDatabaseHeadPointer;
 

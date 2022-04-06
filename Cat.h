@@ -6,9 +6,8 @@
 /// @version 1.0
 ///
 /// @author Jaeden Chang <jaedench@hawaii.edu>
-/// @date   31_Mar_2022
+/// @date   05_Apr_2022
 ///////////////////////////////////////////////////////////////////////////////
-
 #pragma once
 
 #include "config.h"
