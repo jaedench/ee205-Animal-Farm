@@ -24,9 +24,12 @@
 /// in actual databases, there are times when a breed is mis-entered and
 /// needs to be corrected.
 
+/// The maximum size of a cat's name
+#define MAX_CAT_NAME (50)
+
 class Cat {
 private:  ///////////////////////// Member Variables /////////////////////////
-    char        name[MAX_LENGTH] ;  ///< The name of the cat
+    char        name[MAX_CAT_NAME] ;  ///< The name of the cat
     enum Gender gender ;              ///< The gender of the cat
     enum Breed  breed ;               ///< The breed of the cat
     bool        isFixed ;            ///< True if the cat is fixed
