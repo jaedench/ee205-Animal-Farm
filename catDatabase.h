@@ -11,11 +11,12 @@
 
 #pragma once
 
-#include <stdbool.h>
-#include <stdio.h>
-#include <stddef.h>
+#include <stdexcept>  // For logic_error
+#include <iostream>
+#include <cassert>
 
 #include "config.h"
+#include "Cat.h"
 
 #define MAX_LENGTH (50)
 
@@ -41,3 +42,6 @@ struct Cat {
 extern struct Cat cats[MAX_CATS];
 
 extern void initializeDatabase();
+
+/// The head pointer to a linked list of cats
+extern Cat* catDatabaseHeadPointer;

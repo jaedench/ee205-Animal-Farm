@@ -9,11 +9,33 @@
 /// @date   19_Mar_2022
 ///////////////////////////////////////////////////////////////////////////////
 
-#include <stdbool.h>
+#include <stdexcept>  // For logic_error
+#include <iostream>
+#include <cassert>
 
 #include "catDatabase.h"
 #include "config.h"
+#include "Cat.h"
+#include "reportCats.h"
 
-NumCats currentCats = 0;
+using namespace std;
+
+NumCats currentCats = 0; /// Initialize number of cats
 
 struct Cat cats[MAX_CATS];
+
+/// The head pointer to a linked list of cats
+Cat* catDatabaseHeadPointer = nullptr;
+
+/// Initialize the cat database
+extern void initializeDatabase() {
+    if(catDatabaseHeadPointer != nullptr) {
+        throw logic_error( PROGRAM_NAME ": Delete the old database first");
+    }
+    assert( validateDatabase());
+
+    #ifdef DEBUG
+        cout << PROGRAM_NAME << ": Database initialized" << endl ;
+    #endif
+}
+
