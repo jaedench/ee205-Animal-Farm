@@ -8,7 +8,7 @@
 /// @author Jaeden Chang <jaedench@hawaii.edu>
 /// @date   19_Mar_2022
 ///////////////////////////////////////////////////////////////////////////////
-
+/*
 #include <iostream>
 
 #include <stdio.h>
@@ -134,3 +134,4 @@ int findCat(const char name[]) {
     fprintf(stderr, "%s: Cat not found!", PROGRAM_NAME);
     return 1;
 }
+ */

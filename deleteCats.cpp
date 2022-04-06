@@ -8,7 +8,7 @@
 /// @author Jaeden Chang <jaedench@hawaii.edu>
 /// @date   19_Mar_2022
 ///////////////////////////////////////////////////////////////////////////////
-
+/*
 #include <iostream>
 
 #include <stdio.h>
@@ -26,3 +26,4 @@ bool deleteAllCats() {
 
     return true;
 }
+ */

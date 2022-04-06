@@ -8,7 +8,7 @@
 /// @author Jaeden Chang <jaedench@hawaii.edu>
 /// @date   19_Mar_2022
 ///////////////////////////////////////////////////////////////////////////////
-
+/*
 #include <iostream>
 
 #include <stdbool.h>
@@ -78,3 +78,4 @@ bool addCat(const char name[], const enum Gender gender, const enum Breed breed,
 #endif
 
 }
+ */

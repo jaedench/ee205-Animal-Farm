@@ -48,3 +48,5 @@ extern void initializeDatabase();
 
 extern bool isCatInDatabase( const Cat* aCat );
 
+extern bool validateDatabase();
+
