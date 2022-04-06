@@ -23,5 +23,9 @@ using namespace std;
 void Cat* zeroOutMemberData() {
     memset( name, 0, MAX_CAT_NAME);
     gender = UNKNOWN_GENDER;
-    breed = UNKNOWN_BREED
+    breed = UNKNOWN_BREED;
+    isFixed = false;
+    weight = UNKNOWN_WEIGHT;
+    next = nullptr;
 }
+
