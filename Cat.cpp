@@ -29,3 +29,17 @@ void Cat* zeroOutMemberData() {
     next = nullptr;
 }
 
+Cat::Cat() {
+    zeroOutMemberData();
+}
+
+Cat::Cat(const char *newName, const Gender newGender, const Breed newBreed, const Weight newWeight) {
+    setName( newName );
+    setGender( newGender );
+    setBreed( newBreed );
+    setWeight( newWeight );
+}
+
+Cat::~Cat() {
+    zeroOutMemberData();
+}
