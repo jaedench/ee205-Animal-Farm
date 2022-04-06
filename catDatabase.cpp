@@ -28,7 +28,7 @@ struct Cat cats[MAX_CATS];
 Cat* catDatabaseHeadPointer = nullptr;
 
 /// Initialize the cat database
-extern void initializeDatabase() {
+void initializeDatabase() {
     if(catDatabaseHeadPointer != nullptr) {
         throw logic_error( PROGRAM_NAME ": Delete the old database first");
     }
@@ -37,5 +37,21 @@ extern void initializeDatabase() {
     #ifdef DEBUG
         cout << PROGRAM_NAME << ": Database initialized" << endl ;
     #endif
+}
+
+bool isCatInDatabase( const Cat* aCat ) {
+    assert( aCat != nullptr );
+
+    assert( validateDatabase() );
+
+    for(Cat* iCat = catDatabaseHeadPointer ; iCat != nullptr ; iCat = iCat->next ) {
+        if( iCat == aCat ) {
+            return true ;
+        }
+    }
+
+    assert( validateDatabase() ) ;
+
+    return false ;  // The cat wasn't found
 }
 

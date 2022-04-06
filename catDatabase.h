@@ -41,7 +41,10 @@ struct Cat {
 
 extern struct Cat cats[MAX_CATS];
 
-extern void initializeDatabase();
-
 /// The head pointer to a linked list of cats
 extern Cat* catDatabaseHeadPointer;
+
+extern void initializeDatabase();
+
+extern bool isCatInDatabase( const Cat* aCat );
+
