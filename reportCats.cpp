@@ -8,7 +8,7 @@
 /// @author Jaeden Chang <jaedench@hawaii.edu>
 /// @date   19_Mar_2022
 ///////////////////////////////////////////////////////////////////////////////
-/*
+
 #include <iostream>
 
 #include <stdio.h>
@@ -67,7 +67,7 @@ const char* breedName(const enum Breed breed) {
     return 0;
 }
 
-
+/*
 int printCat(const int index) {
     if (index < 0 || index >= currentCats) {
         fprintf(stderr, "%s: Bad cat [%d]\n",PROGRAM_NAME, index);
