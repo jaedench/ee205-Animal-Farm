@@ -144,3 +144,18 @@ bool Cat::validateWeight(const Weight newWeight) {
 }
 
 
+//Validating a cat using a try and catch block
+bool Cat::validate() const noexcept{ //won't throw exceptions
+    try {
+        validateName( name ) ;
+        validateGender( gender ) ;
+        validateBreed( breed ) ;
+        validateWeight( weight ) ;
+    } catch (exception const& e) {
+        cout << e.what() << endl ;
+        return false ;
+    }
+    return true;
+}
+
+
