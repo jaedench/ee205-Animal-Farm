@@ -101,3 +101,46 @@ Weight Cat::getWeight() const noexcept {
 void Cat::setWeight(Weight newWeight) {
     Cat::weight = newWeight;
 }
+
+//VALIDATION
+bool Cat::validateName(const char *newName) {
+    if( newName == nullptr ) {
+        throw invalid_argument( PROGRAM_TITLE ": name cannot be NULL");
+    }
+
+    if( strlen( newName ) <= 0 ) {
+        throw length_error(PROGRAM_TITLE ": name must be greater than 0 charactes in length");
+    }
+
+    if( strlen( newName >= MAX_CAT_NAME )) {
+        throw length_error( PROGRAM_TITLE ": name must be less than MAX_CAT_NAME.");
+    }
+
+    return true;
+}
+
+bool Cat::validateGender(const Gender newGender) {
+    if( newGender == UNKNOWN_GENDER ) {
+        throw invalid_argument(PROGRAM_TITLE ": The cat's gender must be known.");
+    }
+
+    return true;
+}
+
+bool Cat::validateBreed(const Breed newBreed) {
+    if( newBreed == UNKNOWN_BREED ) {
+        throw invalid_argument( PROGRAM_TITLE ": The cat's breed must be known.");
+    }
+
+    return true;
+}
+
+bool Cat::validateWeight(const Weight newWeight) {
+    if( weight <= 0 ) {
+        throw invalid_argument( PROGRAM_TITLE ": The cat's weight must be greater than 0.");
+    }
+
+    return true;
+}
+
+
