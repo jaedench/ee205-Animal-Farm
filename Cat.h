@@ -28,47 +28,44 @@
 
 class Cat {
 private:  ///////////////////////// Member Variables /////////////////////////
-    char name[MAX_CAT_NAME];  ///< The name of the cat
-    enum Gender gender;              ///< The gender of the cat
-    enum Breed breed;               ///< The breed of the cat
-    bool isFixed;            ///< True if the cat is fixed
-    Weight weight;              ///< The Weight of the cat.  Must
-    ///  be >0 or -1 if unknown.
+    char name[MAX_CAT_NAME];  ///< Cat's name
+    enum Gender gender;              ///< Cat's gender
+    enum Breed breed;               ///< Cat's breed
+    bool isFixed;            ///< If the cat is fixed, return true
+    Weight weight;              ///< Cat's weight: Must be greater than 0 or -1 if unknown.
 
 public:  /////////////////////// Public Member Variables ///////////////////////
     Cat *next;                ///< The next pointer for a linked list
 
 private:  /////////////////////////// Private Methods //////////////////////////
-    void zeroOutMemberData();         ///< Initialize / zero out all member data
+    void zeroOutMemberData();         ///< Make all member data zero
 
 public:  //////////////////////////// Constructors /////////////////////////////
-    Cat();            ///< Create a cat with all default values.  For now, this
-    ///< is a necessary evil.
+    Cat();     ///< Create a cat with all default values.
 
     /// Create a cat with the minimum fields necessary to have a valid cat
     Cat(const char *newName, const Gender newGender, const Breed newBreed, const Weight newWeight);
 
-    /// Zero out all of the member data (it's super secret!)
+    /// Zero out all of the member data
     virtual ~Cat();
 
 public:  ////////////////////////// Getters & Setters //////////////////////////
-    const char *getName() const noexcept; ///< Get the Cat's name
-    void setName(const char *newName);   ///< Set the Cat's name.  The name
-    ///< must not be empty and it must
-    ///< be <= MAX_CAT_NAME in length.
+    const char *getName() const noexcept; ///< Get Cat's name
+    void setName(const char *newName);   ///< Set Cat's name. Name length must be greater than 0 and it must
+    ///< be less than or equal to the MAX_CAT_NAME.
 
-    Gender getGender() const noexcept;  ///< Get the Cat's gender
-    Breed getBreed() const noexcept;    ///< Get the Cat's breed
-    bool isCatFixed() const noexcept;      ///< Return true if the cat is fixed
+    Gender getGender() const noexcept;  ///< Get Cat's gender
+    Breed getBreed() const noexcept;    ///< Get Cat's breed
+    bool isCatFixed() const noexcept;      ///< If the cat is fixed, return true
     void fixCat() noexcept;             ///< Spay or neuter the cat
-    Weight getWeight() const noexcept;  ///< The weight of the cat or -1 if unknown
-    void setWeight(Weight newWeight);   ///< Set the newWeight of the cat
+    Weight getWeight() const noexcept;  ///< Cat's weight: Must be greater than 0 or -1 if unknown
+    void setWeight(Weight newWeight);   ///< Set newWeight of the cat
 
 
 protected:  ////////////////////// Protected Methods ///////////////////////////
 public:
-    void setGender(Gender newGender);  ///< Set the cat's gender
-    void setBreed(Breed newBreed);  ///< Set the cat's breed
+    void setGender(Gender newGender);  ///< Set cat's gender
+    void setBreed(Breed newBreed);  ///< Set cat's breed
 
 public:  /////////////////////////// Public Methods ////////////////////////////
     bool print() const noexcept;    ///< Print a cat
@@ -79,5 +76,8 @@ public:  /////////////////////// Static Public Methods /////////////////////////
     static bool validateName(const char *newName);  ///< Check if `newName` is valid
     static bool validateGender(const Gender newGender); ///< Check if `newGender` is valid
     static bool validateBreed(const Breed newBreed); ///< Check if 'newBreed` is valid
-    static bool validateWeight(const Weight newWeight); ///< Check if `newWeight` is valid
+    static bool validateWeight(const Weight newWeight);
+
+    bool isFixed() const;
+    ///< Check if `newWeight` is valid
 }
