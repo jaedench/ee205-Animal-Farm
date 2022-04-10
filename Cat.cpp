@@ -19,6 +19,8 @@
 #include "reportCats.h"
 #include "catDatabase.h"
 
+#define FORMAT_LINE( className, member ) cout << setw(8) << (className) << setw(20) << (member) << setw(52);
+
 using namespace std;
 
 void Cat::zeroOutMemberData() {
@@ -158,4 +160,21 @@ bool Cat::validate() const noexcept{ //won't throw exceptions
     return true;
 }
 
+
+//PRINT
+
+bool Cat::print() const noexcept {
+    assert( validate() ) ;
+    cout  << setw(80) << setfill( '=' ) << "" << endl ;
+    cout << setfill( ' ' ) ;
+    cout << left ;
+    cout << boolalpha ;
+    FORMAT_LINE( "Cat", "name" )    << getName()                 << endl ;
+    FORMAT_LINE( "Cat", "gender" )  << genderName( getGender() ) << endl ;
+    FORMAT_LINE( "Cat", "breed" )   << breedName( getBreed() )   << endl ;
+    FORMAT_LINE( "Cat", "isFixed" ) << isFixed()                 << endl ;
+    FORMAT_LINE( "Cat", "weight" )  << getWeight()               << endl ;
+
+    return true ;
+}
 
