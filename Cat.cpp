@@ -84,3 +84,11 @@ void Cat::setBreed(Breed newBreed) {
     Cat::breed = newBreed;
 }
 
+//Fixed
+bool Cat::isCatFixed() const noexcept {
+    return isFixed;
+}
+
+void Cat::isCatFixed() const noexcept {
+    Cat::isFixed = true;
+}
