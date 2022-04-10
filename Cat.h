@@ -77,7 +77,5 @@ public:  /////////////////////// Static Public Methods /////////////////////////
     static bool validateGender(const Gender newGender); ///< Check if `newGender` is valid
     static bool validateBreed(const Breed newBreed); ///< Check if 'newBreed` is valid
     static bool validateWeight(const Weight newWeight);
-
-    bool isFixed() const;
     ///< Check if `newWeight` is valid
 }

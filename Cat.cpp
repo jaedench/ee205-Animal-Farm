@@ -92,3 +92,12 @@ bool Cat::isCatFixed() const noexcept {
 void Cat::isCatFixed() const noexcept {
     Cat::isFixed = true;
 }
+
+//Weight
+Weight Cat::getWeight() const noexcept {
+    return weight;
+}
+
+void Cat::setWeight(Weight newWeight) {
+    Cat::weight = newWeight;
+}
