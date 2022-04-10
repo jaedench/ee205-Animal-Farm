@@ -70,7 +70,7 @@ const char* breedName(const enum Breed breed) {
 
 int printCat(const int index) {
     if (index < 0 || index >= currentCats) {
-        fprintf(stderr, "%s: Bad cat [%d]\n",PROGRAM_NAME, index);
+        fprintf(stderr, "%s: Bad cat [%d]\n",PROGRAM_TITLE, index);
         return 1;
     }
 
@@ -91,7 +91,7 @@ int printCat(const int index) {
 
 int printAllCats() {
     if (currentCats == 0) {
-        fprintf(stderr, "%s: No cats stored!\n", PROGRAM_NAME);
+        fprintf(stderr, "%s: No cats stored!\n", PROGRAM_TITLE);
         return 1;
     }
 
@@ -115,13 +115,13 @@ int printAllCats() {
 int findCat(const char name[]) {
     int i = 0;
     if (strlen(name) == 0) {
-        fprintf(stderr,"%s: Hey! You need to enter a name!\n", PROGRAM_NAME);
+        fprintf(stderr,"%s: Hey! You need to enter a name!\n", PROGRAM_TITLE);
         return 1;
     }
 
 
     if (strlen(name) > MAX_LENGTH) {
-        fprintf(stderr, "%s: Name must be 30 characters or less! No cat's name is THAT long!\n", PROGRAM_NAME);
+        fprintf(stderr, "%s: Name must be 30 characters or less! No cat's name is THAT long!\n", PROGRAM_TITLE);
         return 1;
     }
 
@@ -131,6 +131,6 @@ int findCat(const char name[]) {
             return i;
         }
     }
-    fprintf(stderr, "%s: Cat not found!", PROGRAM_NAME);
+    fprintf(stderr, "%s: Cat not found!", PROGRAM_TITLE);
     return 1;
 }

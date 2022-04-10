@@ -23,24 +23,24 @@
 
 bool updateCatName(const int index, const char newName[]) {
     if (index >= currentCats) {
-        fprintf(stderr, "%s: No cat at index [%d] to update.\n", PROGRAM_NAME, index);
+        fprintf(stderr, "%s: No cat at index [%d] to update.\n", PROGRAM_TITLE, index);
         return false;
     }
 
     if (isValidIndex(index) == false) {
-        std::cout << PROGRAM_NAME << ": Invalid index!\n" << std::endl;
+        std::cout << PROGRAM_TITLE << ": Invalid index!\n" << std::endl;
         return false;
     }
 
     if (isValidName(newName) == false) {
-        std::cout << PROGRAM_NAME << ": Invalid name!\n" << std::endl;
+        std::cout << PROGRAM_TITLE << ": Invalid name!\n" << std::endl;
         return false;
     }
 
     int i = 0;
     while (i <= MAX_CATS) {
         if (nameExists(i, newName) == false) {
-            std::cout << PROGRAM_NAME << ": Name exists!\n" << std::endl;
+            std::cout << PROGRAM_TITLE << ": Name exists!\n" << std::endl;
             return false;
         }
         i++;
@@ -57,12 +57,12 @@ bool updateCatName(const int index, const char newName[]) {
 
 bool fixCat(const int index) {
     if (isValidIndex(index) == false) {
-        std::cout << PROGRAM_NAME << ": Invalid index!\n" << std::endl;
+        std::cout << PROGRAM_TITLE << ": Invalid index!\n" << std::endl;
         return false;
     }
 
     if (cats[index].isFixed == true) {
-        fprintf(stderr, "%s: Cat is already fixed! Too late to go back now...\n", PROGRAM_NAME);
+        fprintf(stderr, "%s: Cat is already fixed! Too late to go back now...\n", PROGRAM_TITLE);
         return false;
     }
 
@@ -74,12 +74,12 @@ bool fixCat(const int index) {
 
 bool updateCatWeight(const int index, const Weight newWeight) {
     if (isValidIndex(index) == false) {
-        std::cout << PROGRAM_NAME << ": Invalid index!\n" << std::endl;
+        std::cout << PROGRAM_TITLE << ": Invalid index!\n" << std::endl;
         return false;
     }
 
     if (isValidWeight(newWeight) == false) {
-        std::cout << PROGRAM_NAME << ": Invalid weight!\n" << std:: endl;
+        std::cout << PROGRAM_TITLE << ": Invalid weight!\n" << std:: endl;
         return false;
     }
 
