@@ -8,7 +8,7 @@
 /// @author Jaeden Chang <jaedench@hawaii.edu>
 /// @date   19_Mar_2022
 ///////////////////////////////////////////////////////////////////////////////
-
+/*
 #pragma once
 
 #include "config.h"
@@ -22,3 +22,4 @@ extern bool isValidIndex( const int index );
 extern bool isValidName( const char checkName[] );
 
 extern bool isValidWeight( const Weight checkWeight );
+*/
