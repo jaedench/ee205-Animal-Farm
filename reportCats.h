@@ -11,11 +11,12 @@
 
 #pragma once
 
-extern int printCat(const int index);
+#include "config.h"
+#include "Cat.h"
 
-extern int printAllCats();
+extern bool printAllCats();
 
-extern int findCat(const char name[]);
+extern Cat* findCatByName( const char* name );
 
 extern const char* colorName(const enum Color color);
 

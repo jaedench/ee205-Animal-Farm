@@ -10,12 +10,17 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 #include <iostream>
+#include <cstring>  // For strncmp
+#include <stdexcept> // To throw if the enumName functions are bad
+#include <cassert>
 
 #include <stdio.h>
 #include <string.h>
 
 #include "catDatabase.h"
 #include "reportCats.h"
+#include "Cat.h"
+#include "config.h"
 
 const char* colorName(const enum Color color) {
     switch(color) {
@@ -68,69 +73,31 @@ const char* breedName(const enum Breed breed) {
 }
 
 
-int printCat(const int index) {
-    if (index < 0 || index >= currentCats) {
-        fprintf(stderr, "%s: Bad cat [%d]\n",PROGRAM_TITLE, index);
-        return 1;
+bool printAllCats() {
+    int currentCats = 0;
+
+    assert(validateDatabase());
+
+    for (Cat *iCat = catDatabaseHeadPointer; iCat != nullptr; iCat = iCat->next) {
+        iCat->print();
+        currentCats++;
     }
 
-    std::cout << "cat index = [" << index << "] "
-              << "name=["        << cats[index].name                          << "] "
-              << "gender=["      << genderName(cats[index].gender)    << "] "
-              << "breed=["       << breedName(cats[index].breed)       << "] "
-              << "isFixed=["     << cats[index].isFixed                       << "] "
-              << "weight=["      << cats[index].weight                        << "] "
-              << "collar1=["     << colorName(cats[index].collarColor1) << "] "
-              << "collar2=["     << colorName(cats[index].collarColor2) << "] "
-              << "license=["     << cats[index].license                       << "] "
-              << std::endl;
-
-    return 0;
+    assert(validateDatabase());
 }
 
 
-int printAllCats() {
-    if (currentCats == 0) {
-        fprintf(stderr, "%s: No cats stored!\n", PROGRAM_TITLE);
-        return 1;
-    }
+Cat* findCatByName(const char* name) {
+    assert(Cat().validateName(name));
 
-
-    //int i;
-    for (int i = 0; i < currentCats; ++i) {
-        std::cout << "cat index =[" << i << "] "
-                  << "name=[" << cats[i].name << "] "
-                  << "gender=[" << genderName(cats[i].gender) << "] "
-                  << "breed=[" << breedName(cats[i].breed) << "] "
-                  << "isFixed=[" << cats[i].isFixed << "] "
-                  << "weight=[" << cats[i].weight << "] "
-                  << "collar1=[" << colorName(cats[i].collarColor1) << "] "
-                  << "collar2[" << colorName(cats[i].collarColor2) << "] "
-                  << "license[" << cats[i].license << "]"
-                  << std::endl;
-    }
-    return 0;
-}
-
-int findCat(const char name[]) {
-    int i = 0;
-    if (strlen(name) == 0) {
-        fprintf(stderr,"%s: Hey! You need to enter a name!\n", PROGRAM_TITLE);
-        return 1;
-    }
-
-
-    if (strlen(name) > MAX_LENGTH) {
-        fprintf(stderr, "%s: Name must be 30 characters or less! No cat's name is THAT long!\n", PROGRAM_TITLE);
-        return 1;
-    }
-
-    for (i = 0; i < currentCats; ++i) {
-        if (strcmp(name, cats[i].name) == 0) {
-            std::cout << "Match with cat at index " << i << "\n" << std::endl;
-            return i;
+    //iterate through database until name matches
+    for (Cat *iCat = catDatabaseHeadPointer; iCat != nullptr; iCat = iCat->next) {
+        if (strcmp(name, iCat->getName()) == 0) {
+            return iCat;
         }
     }
-    fprintf(stderr, "%s: Cat not found!", PROGRAM_TITLE);
-    return 1;
+
+    // no match
+    std::cout << "No matching cat in database" << std::endl;
+    return nullptr;
 }
