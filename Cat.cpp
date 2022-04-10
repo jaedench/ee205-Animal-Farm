@@ -50,6 +50,7 @@ Cat::~Cat() {
 }
 
 // GETTERS AND SETTERS
+//Name
 const char *Cat::getName() const noexcept {
     return name;
 }
@@ -58,3 +59,15 @@ void Cat::getName(const char *newName) {
     memset( name, 0, MAX_CAT_NAME ); // zero out old name
     strcpy( name, newName ); // set new name
 }
+
+//Gender
+Gender Cat::getGender() const noexcept{
+    return gender;
+}
+
+void Cat::setGender(Gender newGender) {
+    if( gender != UNKNOWN_GENDER ) {
+        throw logic_error( PROGRAM_TITLE ": The cat's gender is already set. You can't change it!")
+    }
+}
+
