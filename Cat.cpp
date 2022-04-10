@@ -67,7 +67,20 @@ Gender Cat::getGender() const noexcept{
 
 void Cat::setGender(Gender newGender) {
     if( gender != UNKNOWN_GENDER ) {
-        throw logic_error( PROGRAM_TITLE ": The cat's gender is already set. You can't change it!")
+        throw logic_error( PROGRAM_TITLE ": The cat's gender is already set. You can't change it!");
     }
+    Cat::gender = newGender;
+}
+
+//Breed
+Breed Cat::getBreed() const noexcept {
+    return breed;
+}
+
+void Cat::setBreed(Breed newBreed) {
+    if( breed != UNKNOWN_BREED ) {
+        throw logic_error(PROGRAM_TITLE ": The cat's breed is already set. You can't change it!");
+    }
+    Cat::breed = newBreed;
 }
 
