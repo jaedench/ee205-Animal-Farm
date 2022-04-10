@@ -8,7 +8,7 @@
 /// @author Jaeden Chang <jaedench@hawaii.edu>
 /// @date   19_Mar_2022
 ///////////////////////////////////////////////////////////////////////////////
-/*
+
 #include <stdexcept>  // For logic_error
 #include <iostream>
 #include <cassert>
@@ -88,4 +88,3 @@ bool validateDatabase() {
 
     return true ;  // The database is healthy
 }
-*/

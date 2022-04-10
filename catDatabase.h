@@ -20,6 +20,8 @@
 
 #define MAX_LENGTH (50)
 
+typedef int NumCats;
+
 extern NumCats currentCats;
 
 /// The head pointer to a linked list of cats

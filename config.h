@@ -18,8 +18,6 @@
 
 typedef float Weight;
 
-typedef int NumCats;
-
 enum Gender {UNKNOWN_GENDER, MALE, FEMALE};
 
 enum Breed {UNKNOWN_BREED, MAINE_COON, MANX, SHORTHAIR, PERSIAN, SPHYNX};

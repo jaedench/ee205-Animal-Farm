@@ -25,7 +25,7 @@
 #include "deleteCats.h"
 #include "catValidation.h"
 
- /*
+
 #define MAX_NAME1    "1234567890123456789012345678901234567890123456789"
 #define MAX_NAME2    "DIFFERENT 123456789012345678901234567890123456789"
 #define ILLEGAL_NAME "12345678901234567890123456789012345678901234567890"
@@ -34,7 +34,7 @@
 int main() {
     std::cout << "Starting " << PROGRAM_TITLE << "\n" << std::endl;
 
-/*
+
     //initializeDatabase();
 
     addCat( "Loki",  MALE,           PERSIAN,    true,   8.5, BLACK, WHITE, 101 ) ;
@@ -98,9 +98,8 @@ int main() {
     deleteAllCats() ;
     printAllCats() ;
 
-*/
+
     std::cout << "Done with " PROGRAM_TITLE << "\n" << std::endl; }
-/*
+
     return( EXIT_SUCCESS ) ;
 }
- */
