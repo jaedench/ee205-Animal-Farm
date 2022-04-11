@@ -10,10 +10,14 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 #include <iostream>
+#include <cstdlib>  // For EXIT_SUCCESS / EXIT_FAILURE
+#include <cassert>  // For assert()
+#include <cstring>  // For strcmp()
+#include <exception>  // For try/catch blocks
 
 #include <stdio.h>
-#include <stdlib.h> //For EXIT_SUCCESS / EXIT_FAILURE
-#include <assert.h> //For assert()
+#include <stdlib.h>
+#include <assert.h>
 #include <stdbool.h>
 #include <string.h>
 
@@ -24,79 +28,131 @@
 #include "updateCats.h"
 #include "deleteCats.h"
 #include "catValidation.h"
+#include "Cat.h"
 
+using namespace std;
 
 #define MAX_NAME1    "1234567890123456789012345678901234567890123456789"
 #define MAX_NAME2    "DIFFERENT 123456789012345678901234567890123456789"
 #define ILLEGAL_NAME "12345678901234567890123456789012345678901234567890"
 
 int main() {
-    std::cout << "Starting " << PROGRAM_TITLE << "\n" << std::endl;
+    // RELEASE MAIN
+    cout << "Starting " << PROGRAM_TITLE << endl;
 
+    initializeDatabase();
 
-    //initializeDatabase();
-
-    addCat( "Loki",  MALE,           PERSIAN,    true,   8.5, BLACK, WHITE, 101 ) ;
-    addCat( "Milo",  MALE,           MANX,       true,   7.0, BLACK, RED,   102 ) ;
-    addCat( "Bella", FEMALE,         MAINE_COON, true,  18.2, BLACK, BLUE,  103 ) ;
-    addCat( "Kali",  FEMALE,         SHORTHAIR,  false,  9.2, BLACK, GREEN, 104 ) ;
-    addCat( "Trin",  FEMALE,         MANX,       true,  12.2, BLACK, PINK,  105 ) ;
-    addCat( "Chili", UNKNOWN_GENDER, SHORTHAIR,  false, 19.0, WHITE, BLACK, 106 ) ;
-
-#ifdef DEBUG
-    // Test for empty name
-   assert( addCat( "", UNKNOWN_GENDER, SHORTHAIR, false, 19.0, BLACK, WHITE, 101 ) == BAD_CAT ) ;
-   // Test for max name
-   assert( addCat( MAX_NAME1, UNKNOWN_GENDER, SHORTHAIR, false, 19.0, WHITE, RED, 107 ) != BAD_CAT ) ;
-   // Test for name too long
-   assert( addCat( ILLEGAL_NAME, UNKNOWN_GENDER, SHORTHAIR, false, 19.0, WHITE, BLUE, 108 ) == BAD_CAT ) ;
-   // Test for duplicate cat name
-   assert( addCat( "Chili", UNKNOWN_GENDER, SHORTHAIR, false, 0, WHITE, GREEN, 109 ) == BAD_CAT ) ;
-   // Test for weight <= 0
-   assert( addCat( "Neo", UNKNOWN_GENDER, SHORTHAIR, false, 0, WHITE, PINK, 110 ) == BAD_CAT ) ;
-   // Test for printCat( -1 ) ;
-   printCat( -1 ) ;
-   // Test for out of bounds
-   printCat( 2000 ) ;
-   // Test finding a cat...
-   assert( findCat( "Bella" ) == 2 ) ;
-   // Test not finding a cat
-   assert( findCat( "Bella's not here" ) == BAD_CAT ) ;
-   // Test addCat details
-   size_t testCat = addCat( "Oscar", UNKNOWN_GENDER, SHORTHAIR, false, 1.1, RED, BLACK, 111 ) ;
-   assert( testCat != BAD_CAT );
-   assert( testCat < MAX_CATS );
-   // Test setting a large name
-   assert( updateCatName( testCat, MAX_NAME2 ) == true ) ;
-   printCat( testCat ) ;
-   // Test setting an out-of-bounds name
-   assert( updateCatName( testCat, ILLEGAL_NAME ) == false ) ;
-   printCat( testCat ) ;
-   // Test setting an illegal cat weight
-   assert( updateCatWeight( testCat, -1 ) == false ) ;
-#endif
-
+    bool result; //result is true if add cat succeeds
+    result = addCat( new Cat( "Loki",  MALE,   PERSIAN,    1.0 )) ;
+    assert(result);
+    if( !result ) {
+        throw logic_error(PROGRAM_TITLE ": addCat() failed");
+    }
+    result = addCat( new Cat( "Milo",  MALE,   MANX,       1.1 )) ;
+    assert(result);
+    result = addCat( new Cat( "Bella", FEMALE, MAINE_COON, 1.2 )) ;
+    assert(result);
+    result = addCat( new Cat( "Kali",  FEMALE, SHORTHAIR,  1.3 )) ;
+    assert(result);
+    result = addCat( new Cat( "Trin",  FEMALE, MANX,       1.4 )) ;
+    assert(result);
+    result = addCat( new Cat( "Chili", MALE,   SHORTHAIR,  1.5 )) ;
+    assert(result);
 
     printAllCats();
 
-    int kali = findCat( "Kali" ) ;
-    assert( updateCatName( kali, "Chili" ) == false ) ; // duplicate cat name should fail
-    printCat( kali ) ;
-    assert( updateCatName( kali, "Capulet" ) == true ) ;
-    assert( updateCatWeight( kali, 9.9 ) == true ) ;
-    assert( fixCat( kali ) == true ) ;
-    assert( updateCatCollar1( kali, GREEN ) == true ) ;
-    assert( updateCatCollar2( kali, GREEN ) == true ) ;
-    assert( updateLicense( kali, 201 ) == true ) ;
+    deleteAllCats();
 
+    printAllCats();
+    // END RELEASE MAIN
 
-    printCat( kali ) ;
+    //DEBUG MAIN
+    //#ifdef DEBUG
+        {
+          // Verify that a cat's default values are set
+          Cat testCat = Cat();
+          assert(testCat.getName() != nullptr );
+          assert(strcmp(testCat.getName(), "") == 0);
+          assert(testCat.getGender() == UNKNOWN_GENDER);
+          assert(testCat.getBreed() == UNKNOWN_BREED);
+          assert(testCat.isCatFixed() == false);
+          assert(testCat.getWeight() == UNKNOWN_WEIGHT);
+          assert(!testCat.isCatFixed());
+          assert(!testCat.validate());  // The default cat is invalid
 
-    printAllCats() ;
+          // Test for NULL name
+          try {
+             testCat.setName(nullptr);
+             assert(false); // We should never get here
+          } catch (exception const &e) {}
 
-    deleteAllCats() ;
-    printAllCats() ;
+          // Test for empty name
+          try {
+             testCat.setName("");
+             assert(false); // We should never get here
+          } catch (exception const &e) {}
 
+          // Test valid names
+          testCat.setName("A");       // A 1 character name is valid
+          testCat.setName(MAX_NAME1); // A MAX_NAME1 name is valid
+
+          // Test for name too large
+          try {
+             testCat.setName(ILLEGAL_NAME);
+             assert(false); // We should never get here
+          } catch (exception const &e) {}
+
+          testCat.setGender(FEMALE);
+
+          try {
+             testCat.setGender(MALE);
+             assert(false); // We should never get here
+          } catch (exception const &e) {}
+
+          testCat.setBreed(MAINE_COON);
+
+          try {
+             testCat.setBreed(MANX);
+             assert(false); // We should never get here
+          } catch (exception const &e) {}
+
+          testCat.fixCat();
+          assert(testCat.isCatFixed());
+
+          // Test for Weight <= 0
+          try {
+             testCat.setWeight(0);
+             assert(false); // We should never get here
+          } catch (exception const &e) {}
+
+          testCat.setWeight(1.0 / 1024);
+          assert(testCat.getWeight() == 1.0 / 1024);
+
+          assert(testCat.validate());  // The cat should now be valid
+          testCat.print() ;
+
+          assert(!isCatInDatabase(&testCat)) ;
+       }
+    //#endif
+
+    //#ifdef DEBUG
+        {
+          // Test finding a cat...
+          Cat *bella = findCatByName("Bella");
+          assert(bella != nullptr);
+          // Test not finding a cat
+          assert(findCatByName("Bella's not here") == nullptr);
+
+          // Test deleting a cat...
+          assert(deleteCat(bella) == true);
+          try {
+             deleteCat(bella); // Verify that Bella's not there
+          } catch (exception const &e) {}
+
+          bella = nullptr;
+       }
+    //#endif
+    // END DEBUG MAIN
 
     std::cout << "Done with " PROGRAM_TITLE << "\n" << std::endl;
 
