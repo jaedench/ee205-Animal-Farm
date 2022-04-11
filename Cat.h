@@ -51,7 +51,7 @@ public:  //////////////////////////// Constructors /////////////////////////////
 
 public:  ////////////////////////// Getters & Setters //////////////////////////
     const char *getName() const noexcept; ///< Get Cat's name
-    void setName(const char *newName);   ///< Set Cat's name. Name length must be greater than 0 and it must
+    void setName(const char *newName );   ///< Set Cat's name. Name length must be greater than 0 and it must
     ///< be less than or equal to the MAX_CAT_NAME.
 
     Gender getGender() const noexcept;  ///< Get Cat's gender

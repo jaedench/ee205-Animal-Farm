@@ -14,10 +14,10 @@
 #include <iomanip>
 #include <cassert>
 
-#include "Cat.h"
 #include "config.h"
 #include "reportCats.h"
 #include "catDatabase.h"
+#include "Cat.h"
 
 #define FORMAT_LINE( className, member ) cout << setw(8) << (className) << setw(20) << (member) << setw(52);
 
@@ -57,7 +57,7 @@ const char *Cat::getName() const noexcept {
     return name;
 }
 
-void Cat::getName(const char *newName) {
+void Cat::getName(const char* newName) {
     memset( name, 0, MAX_CAT_NAME ); // zero out old name
     strcpy( name, newName ); // set new name
 }
@@ -146,6 +146,7 @@ bool Cat::validateWeight(const Weight newWeight) {
 }
 
 
+
 //Validating a cat using a try and catch block
 bool Cat::validate() const noexcept{ //won't throw exceptions
     try {
@@ -172,7 +173,7 @@ bool Cat::print() const noexcept {
     FORMAT_LINE( "Cat", "name" )    << getName()                 << endl ;
     FORMAT_LINE( "Cat", "gender" )  << genderName( getGender() ) << endl ;
     FORMAT_LINE( "Cat", "breed" )   << breedName( getBreed() )   << endl ;
-    FORMAT_LINE( "Cat", "isFixed" ) << isFixed()                 << endl ;
+    FORMAT_LINE( "Cat", "isFixed" ) << isCatFixed()              << endl ;
     FORMAT_LINE( "Cat", "weight" )  << getWeight()               << endl ;
 
     return true ;

@@ -13,6 +13,8 @@
 
 #include "config.h"
 #include "Cat.h"
+#include "catDatabase.h"
+#include "reportCats.h"
 
 extern bool printAllCats();
 
