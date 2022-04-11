@@ -110,11 +110,11 @@ bool Cat::validateName(const char *newName) {
         throw invalid_argument( PROGRAM_TITLE ": name cannot be NULL");
     }
 
-    if( strlen( newName ) <= 0 ) {
+    if( strlen( newName)  <= 0 ) {
         throw length_error(PROGRAM_TITLE ": name must be greater than 0 charactes in length");
     }
 
-    if( strlen( newName >= MAX_CAT_NAME )) {
+    if( strlen( newName )>= MAX_CAT_NAME ) {
         throw length_error( PROGRAM_TITLE ": name must be less than MAX_CAT_NAME.");
     }
 
@@ -138,7 +138,7 @@ bool Cat::validateBreed(const Breed newBreed) {
 }
 
 bool Cat::validateWeight(const Weight newWeight) {
-    if( weight <= 0 ) {
+    if( newWeight <= 0 ) {
         throw invalid_argument( PROGRAM_TITLE ": The cat's weight must be greater than 0.");
     }
 
