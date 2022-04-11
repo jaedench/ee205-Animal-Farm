@@ -8,7 +8,7 @@
 /// @author Jaeden Chang <jaedench@hawaii.edu>
 /// @date   19_Mar_2022
 ///////////////////////////////////////////////////////////////////////////////
-
+/*
 #pragma once
 
 #include "config.h"
@@ -24,3 +24,4 @@ extern bool updateCatCollar1(const int index, const enum Color newColor1);
 extern bool updateCatCollar2(const int index, const enum Color newColor2);
 
 extern bool updateLicense(const int index, const unsigned long long newLicense);
+*/

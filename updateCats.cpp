@@ -8,7 +8,7 @@
 /// @author Jaeden Chang <jaedench@hawaii.edu>
 /// @date   19_Mar_2022
 ///////////////////////////////////////////////////////////////////////////////
-
+/*
 #include <iostream>
 
 #include <stdio.h>
@@ -105,3 +105,5 @@ bool updateLicense(const int index, const unsigned long long newLicense) {
     cats[index].license = newLicense;
     return true;
 }
+
+ */
