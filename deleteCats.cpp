@@ -19,10 +19,49 @@
 #include "deleteCats.h"
 #include "config.h"
 
-bool deleteAllCats() {
-    memset(cats, 0, sizeof(cats));
-    currentCats = 0;
-    std::cout << "Deleted all cats\n" << std::endl;
+using namespace std;
 
-    return true;
+bool deleteCat( Cat* deletingCat ) {
+    assert( deletingCat != nullptr);
+
+    assert( validateDatabase() ); // validate database before and after
+
+    // special case: deleting first cat
+    if( deletingCat == catDatabaseHeadPointer) {
+        catDatabaseHeadPointer = catDatabaseHeadPointer->next;
+        delete deletingCat; // deletes first cat
+        currentCats--;
+
+        assert(validateDatabase());
+        cout << "deleted cat" << endl;
+        return true;
+    }
+
+    //special case: deleting a cat somewhere in the list
+    Cat* iCat = catDatabaseHeadPointer;
+    while( iCat != nullptr ) {
+        if( iCat->next == deletingCat ) {
+            iCat->next = deletingCat->next;
+            delete deletingCat;
+            currentCats--;
+
+            assert(validateDatabase());
+            cout << "deleted cat" << endl;
+            return true;
+        }
+        iCat = iCat->next;
+    }
+
+    assert(validateDatabase());
+
+    throw invalid_argument( PROGRAM_TITLE ": Unable to delete cat.");
+}
+
+bool deleteAllCats() {
+    while(catDatabaseHeadPointer != nullptr ) {     //this will keep iterating through the list until the end
+        deleteCat(catDatabaseHeadPointer);
+        currentCats = 0;
+        cout << "All cats deleted" << endl;
+        return true;
+    }
 }

@@ -11,4 +11,6 @@
 
 #pragma once
 
+extern bool deleteCat( Cat* deletingCat );
+
 extern bool deleteAllCats();
