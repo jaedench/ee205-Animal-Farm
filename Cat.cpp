@@ -108,7 +108,7 @@ bool Cat::validateName(const char *newName) {
         throw invalid_argument( PROGRAM_TITLE ": name cannot be NULL");
     }
 
-    if( strlen( newName)  <= 0 ) {
+    if( strlen( newName )  <= 0 ) {
         throw length_error(PROGRAM_TITLE ": name must be greater than 0 charactes in length");
     }
 
@@ -147,16 +147,17 @@ bool Cat::validateWeight(const Weight newWeight) {
 
 //Validating a cat using a try and catch block
 bool Cat::validate() const noexcept{ //won't throw exceptions
-   /*if(
-        validateName( name ) &&
-        validateGender( gender ) &&
-        validateBreed( breed ) &&
-        validateWeight( weight ) ) {
-       return true;
-   }
-    */
-   return true;
+    try {
+        validateName( name ) ;
+        validateGender( gender ) ;
+        validateBreed( breed ) ;
+        validateWeight( weight ) ;
+    } catch (exception const& e) {
+        cout << e.what() << endl ;
+        return false ;
+    }
 
+    return true;
 }
 
 

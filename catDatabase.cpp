@@ -32,7 +32,9 @@ void initializeDatabase() {
     }
     assert( validateDatabase() );
 
+#ifdef DEBUG
     cout << PROGRAM_TITLE << ": Database initialized" << endl ;
+#endif
 }
 
 bool isCatInDatabase( const Cat* aCat ) {

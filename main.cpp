@@ -36,6 +36,8 @@ using namespace std;
 #define MAX_NAME2    "DIFFERENT 123456789012345678901234567890123456789"
 #define ILLEGAL_NAME "12345678901234567890123456789012345678901234567890"
 
+//#define DEBUG
+
 int main() {
     // RELEASE MAIN
     cout << "Starting " << PROGRAM_TITLE << endl;
@@ -68,17 +70,17 @@ int main() {
 
     //DEBUG MAIN
     #ifdef DEBUG
-        {
-          // Verify that a cat's default values are set
-          Cat testCat = Cat();
-          assert(testCat.getName() != nullptr );
-          assert(strcmp(testCat.getName(), "") == 0);
-          assert(testCat.getGender() == UNKNOWN_GENDER);
-          assert(testCat.getBreed() == UNKNOWN_BREED);
-          assert(testCat.isCatFixed() == false);
-          assert(testCat.getWeight() == UNKNOWN_WEIGHT);
-          assert(!testCat.isCatFixed());
-          assert(!testCat.validate());  // The default cat is invalid
+    {
+        // Verify that a cat's default values are set
+        Cat testCat = Cat();
+        assert(testCat.getName() != nullptr);
+        assert(strcmp(testCat.getName(), "") == 0);
+        assert(testCat.getGender() == UNKNOWN_GENDER);
+        assert(testCat.getBreed() == UNKNOWN_BREED);
+        assert(testCat.isCatFixed() == false);
+        assert(testCat.getWeight() == UNKNOWN_WEIGHT);
+        assert(!testCat.isCatFixed());
+        assert(!testCat.validate());  // The default cat is invalid
 
           // Test for NULL name
           try {
@@ -133,9 +135,9 @@ int main() {
 
           assert(!isCatInDatabase(&testCat)) ;
        }
-    //#endif
+    #endif
 
-    //#ifdef DEBUG
+    #ifdef DEBUG
         {
           // Test finding a cat...
           Cat *bella = findCatByName("Bella");
