@@ -16,6 +16,7 @@
 #include "catDatabase.h"
 #include "config.h"
 #include "Cat.h"
+#include "reportCats.h"
 
 using namespace std;
 
@@ -31,7 +32,7 @@ void initializeDatabase() {
     }
     assert( validateDatabase() );
 
-    cout << PROGRAM_NAME << ": Database initialized" << endl ;
+    cout << PROGRAM_TITLE << ": Database initialized" << endl ;
 }
 
 bool isCatInDatabase( const Cat* aCat ) {

@@ -84,6 +84,7 @@ bool printAllCats() {
     }
 
     assert(validateDatabase());
+    return true;
 }
 
 

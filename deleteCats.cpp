@@ -64,4 +64,5 @@ bool deleteAllCats() {
         cout << "All cats deleted" << endl;
         return true;
     }
+    return true;
 }
