@@ -11,7 +11,6 @@
 #pragma once
 
 #include "config.h"
-#include "catDatabase.h"
 
 /// Felis Catus
 ///
@@ -51,6 +50,7 @@ public:  //////////////////////////// Constructors /////////////////////////////
 
 public:  ////////////////////////// Getters & Setters //////////////////////////
     const char *getName() const noexcept; ///< Get Cat's name
+    void getName(const char *newName);
     void setName(const char *newName );   ///< Set Cat's name. Name length must be greater than 0 and it must
     ///< be less than or equal to the MAX_CAT_NAME.
 

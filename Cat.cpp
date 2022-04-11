@@ -19,8 +19,6 @@
 #include "catDatabase.h"
 #include "Cat.h"
 
-#define FORMAT_LINE( className, member ) cout << setw(8) << (className) << setw(20) << (member) << setw(52);
-
 using namespace std;
 
 void Cat::zeroOutMemberData() {
@@ -57,7 +55,7 @@ const char *Cat::getName() const noexcept {
     return name;
 }
 
-void Cat::getName(const char* newName) {
+void Cat::setName(const char* newName) {
     memset( name, 0, MAX_CAT_NAME ); // zero out old name
     strcpy( name, newName ); // set new name
 }
@@ -91,7 +89,7 @@ bool Cat::isCatFixed() const noexcept {
     return isFixed;
 }
 
-void Cat::isCatFixed() const noexcept {
+void Cat::fixCat() noexcept {
     Cat::isFixed = true;
 }
 
@@ -114,7 +112,7 @@ bool Cat::validateName(const char *newName) {
         throw length_error(PROGRAM_TITLE ": name must be greater than 0 charactes in length");
     }
 
-    if( strlen( newName )>= MAX_CAT_NAME ) {
+    if( strlen( newName ) >= MAX_CAT_NAME ) {
         throw length_error( PROGRAM_TITLE ": name must be less than MAX_CAT_NAME.");
     }
 
@@ -149,20 +147,22 @@ bool Cat::validateWeight(const Weight newWeight) {
 
 //Validating a cat using a try and catch block
 bool Cat::validate() const noexcept{ //won't throw exceptions
-    try {
-        validateName( name ) ;
-        validateGender( gender ) ;
-        validateBreed( breed ) ;
-        validateWeight( weight ) ;
-    } catch (exception const& e) {
-        cout << e.what() << endl ;
-        return false ;
-    }
-    return true;
+   /*if(
+        validateName( name ) &&
+        validateGender( gender ) &&
+        validateBreed( breed ) &&
+        validateWeight( weight ) ) {
+       return true;
+   }
+    */
+   return true;
+
 }
 
 
 //PRINT
+
+#define FORMAT_LINE( className, member ) cout << setw(8) << (className) << setw(20) << (member) << setw(52)
 
 bool Cat::print() const noexcept {
     assert( validate() ) ;
@@ -170,7 +170,7 @@ bool Cat::print() const noexcept {
     cout << setfill( ' ' ) ;
     cout << left ;
     cout << boolalpha ;
-    FORMAT_LINE( "Cat", "name" )    << getName()                 << endl ;
+    FORMAT_LINE( "Cat", "name")     << getName()                 << endl ;
     FORMAT_LINE( "Cat", "gender" )  << genderName( getGender() ) << endl ;
     FORMAT_LINE( "Cat", "breed" )   << breedName( getBreed() )   << endl ;
     FORMAT_LINE( "Cat", "isFixed" ) << isCatFixed()              << endl ;

@@ -31,7 +31,7 @@ using namespace std;
 bool addCat(Cat* newCat) {
     assert(newCat != nullptr);
 
-    if (newCat->validate()) {
+    if (!newCat->validate()) {
         throw invalid_argument(PROGRAM_TITLE ": that's a bad cat!");
     }
 
@@ -44,7 +44,9 @@ bool addCat(Cat* newCat) {
 
     assert(validateDatabase());
 
+#ifdef DEBUG
     cout << "Cat added" << endl;
+#endif
 
     return true;
 }

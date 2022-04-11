@@ -43,7 +43,7 @@ int main() {
     initializeDatabase();
 
     bool result; //result is true if add cat succeeds
-    result = addCat( new Cat( "Loki",  MALE,   PERSIAN,    1.0 )) ;
+    result = addCat( new Cat( "Loki",  MALE,   PERSIAN,    1.0 ));
     assert(result);
     if( !result ) {
         throw logic_error(PROGRAM_TITLE ": addCat() failed");
@@ -67,7 +67,7 @@ int main() {
     // END RELEASE MAIN
 
     //DEBUG MAIN
-    //#ifdef DEBUG
+    #ifdef DEBUG
         {
           // Verify that a cat's default values are set
           Cat testCat = Cat();
@@ -151,7 +151,7 @@ int main() {
 
           bella = nullptr;
        }
-    //#endif
+    #endif
     // END DEBUG MAIN
 
     std::cout << "Done with " PROGRAM_TITLE << "\n" << std::endl;

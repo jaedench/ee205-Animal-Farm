@@ -78,7 +78,8 @@ bool validateDatabase() {
         return false ;
     }
 
+#ifdef DEBUG
     cout << PROGRAM_TITLE << ": Valid database" << endl ;
-
+#endif
     return true ;  // healthy database
 }

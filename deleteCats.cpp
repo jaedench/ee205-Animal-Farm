@@ -33,7 +33,11 @@ bool deleteCat( Cat* deletingCat ) {
         currentCats--;
 
         assert(validateDatabase());
+
+#ifdef DEBUG
         cout << "deleted cat" << endl;
+#endif
+
         return true;
     }
 
@@ -46,8 +50,9 @@ bool deleteCat( Cat* deletingCat ) {
             currentCats--;
 
             assert(validateDatabase());
+#ifdef DEBUG
             cout << "deleted cat" << endl;
-            return true;
+#endif
         }
         iCat = iCat->next;
     }
@@ -60,9 +65,11 @@ bool deleteCat( Cat* deletingCat ) {
 bool deleteAllCats() {
     while(catDatabaseHeadPointer != nullptr ) {     //this will keep iterating through the list until the end
         deleteCat(catDatabaseHeadPointer);
-        currentCats = 0;
-        cout << "All cats deleted" << endl;
-        return true;
     }
+#ifdef DEBUG
+    cout << "All cats deleted" << endl;
+#endif
+
+    currentCats = 0;
     return true;
 }
