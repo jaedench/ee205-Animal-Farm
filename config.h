@@ -10,9 +10,32 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 #pragma once
-#include <limits.h>
 
+#include <iomanip>
+
+/// Grammatically correct title
 #define PROGRAM_TITLE "Animal Farm 3"
+
+/// Shortened title typically used for console messages
+//@todo change messages to program name because as of right now, they are set to PROGRAM_TITLE
+#define PROGRAM_NAME "animalfarm3"
+
+/// Format the heading for dumping members of a class to the console
+///
+/// Print =====================
+#define PRINT_HEADING_FOR_DUMP \
+ /* Print =========================================================== */ \
+ std::cout << std::setw(80) << std::setfill( '=' ) << "" << std::endl
+
+/// Format a line for dumping the members of a class to the console.
+/// Setup the fields for printing (space pad, left justify, etc.)
+#define FORMAT_LINE_FOR_DUMP( className, member ) \
+ std::cout << std::setfill( ' ' ) /* Space pad */ \
+ << std::left /* Left justify */ \
+ << std::boolalpha /* Print `true` or `false` for `bool`s */ \
+ << std::setw(8) << (className) \
+ << std::setw(20) << (member) \
+ << std::setw(52) /* (data) */
 
 #define MAX_CATS (1024)
 
