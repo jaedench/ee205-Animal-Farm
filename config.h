@@ -12,7 +12,7 @@
 #pragma once
 #include <limits.h>
 
-#define PROGRAM_TITLE "Animal Farm 2"
+#define PROGRAM_TITLE "Animal Farm 3"
 
 #define MAX_CATS (1024)
 
