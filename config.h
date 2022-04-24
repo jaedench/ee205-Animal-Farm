@@ -37,8 +37,6 @@
  << std::setw(20) << (member) \
  << std::setw(52) /* (data) */
 
-#define MAX_CATS (1024)
-
 typedef float Weight;
 
 enum Gender {UNKNOWN_GENDER, MALE, FEMALE};
