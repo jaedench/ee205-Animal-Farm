@@ -37,7 +37,7 @@ Cat::Cat() {
 }
 
 // constructor with the bare minimum for a valid cat
-Cat::Cat(const char *newName, const Gender newGender, const Breed newBreed, const Weight newWeight) : Cat() {
+Cat::Cat(const char *newName, const Gender newGender, const Breed newBreed, const t_weight newWeight) : Cat() {
     setName( newName );
     setGender( newGender );
     setBreed( newBreed );
@@ -94,11 +94,11 @@ void Cat::fixCat() noexcept {
 }
 
 //Weight
-Weight Cat::getWeight() const noexcept {
+t_weight Cat::getWeight() const noexcept {
     return weight;
 }
 
-void Cat::setWeight(Weight newWeight) {
+void Cat::setWeight(t_weight newWeight) {
     Cat::weight = newWeight;
 }
 
@@ -135,7 +135,7 @@ bool Cat::validateBreed(const Breed newBreed) {
     return true;
 }
 
-bool Cat::validateWeight(const Weight newWeight) {
+bool Cat::validateWeight(const t_weight newWeight) {
     if( newWeight <= 0 ) {
         throw invalid_argument( PROGRAM_TITLE ": The cat's weight must be greater than 0.");
     }

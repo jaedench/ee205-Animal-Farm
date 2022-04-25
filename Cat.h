@@ -31,7 +31,7 @@ private:  ///////////////////////// Member Variables /////////////////////////
     enum Gender gender;              ///< Cat's gender
     enum Breed breed;               ///< Cat's breed
     bool isFixed;            ///< If the cat is fixed, return true
-    Weight weight;              ///< Cat's weight: Must be greater than 0 or -1 if unknown.
+    t_weight weight;              ///< Cat's weight: Must be greater than 0 or -1 if unknown.
 
 public:  /////////////////////// Public Member Variables ///////////////////////
     Cat *next;                ///< The next pointer for a linked list
@@ -43,7 +43,7 @@ public:  //////////////////////////// Constructors /////////////////////////////
     Cat();     ///< Create a cat with all default values.
 
     /// Create a cat with the minimum fields necessary to have a valid cat
-    Cat(const char *newName, const Gender newGender, const Breed newBreed, const Weight newWeight);
+    Cat(const char *newName, const Gender newGender, const Breed newBreed, const t_weight newWeight);
 
     /// Zero out all of the member data
     virtual ~Cat();
@@ -58,8 +58,8 @@ public:  ////////////////////////// Getters & Setters //////////////////////////
     Breed getBreed() const noexcept;    ///< Get Cat's breed
     bool isCatFixed() const noexcept;      ///< If the cat is fixed, return true
     void fixCat() noexcept;             ///< Spay or neuter the cat
-    Weight getWeight() const noexcept;  ///< Cat's weight: Must be greater than 0 or -1 if unknown
-    void setWeight(Weight newWeight);   ///< Set newWeight of the cat
+    t_weight getWeight() const noexcept;  ///< Cat's weight: Must be greater than 0 or -1 if unknown
+    void setWeight(t_weight newWeight);   ///< Set newWeight of the cat
 
 
 protected:  ////////////////////// Protected Methods ///////////////////////////
@@ -76,5 +76,5 @@ public:  /////////////////////// Static Public Methods /////////////////////////
     static bool validateName(const char *newName);  ///< Check if `newName` is valid
     static bool validateGender(const Gender newGender); ///< Check if `newGender` is valid
     static bool validateBreed(const Breed newBreed); ///< Check if 'newBreed` is valid
-    static bool validateWeight(const Weight newWeight); ///< Check if `newWeight` is valid
+    static bool validateWeight(const t_weight newWeight); ///< Check if `newWeight` is valid
 };
