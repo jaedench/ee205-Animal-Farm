@@ -16,6 +16,8 @@
 
 #include "config.h"
 #include "Animal.h"
+#include "Gender.h"
+#include "Weight.h"
 
 ///////////// Constants /////////////////
 const std::string KINGDOM_NAME = "Animalia";

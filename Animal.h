@@ -11,13 +11,13 @@
 
 #pragma once
 
+#include <iostream>
 #include <string>
 
 #include "config.h"
 #include "Node.h"
 #include "Gender.h"
 #include "Weight.h"
-
 
 /// A class that encompasses all Animals on the farm.
 ///

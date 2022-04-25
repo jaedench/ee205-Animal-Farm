@@ -14,10 +14,13 @@
 #include <iostream>
 #include <string>
 
+#include "config.h"
+
 #define PROGRAM_TITLE "Animal Farm 3"
 
 class Weight {
 public:
+    typedef float t_weight;
     ////////////// Public Types //////////////
     enum UnitOfWeight{ POUND, KILO, SLUG};  /// units of measure for weight.
 
@@ -97,6 +100,9 @@ public:
     void dump() const noexcept;     /// Print the Weight class.
 
 
+///////////////// Private Member Functions //////////////////
+void setMaxWeight( float newMaxWeight ); // made public for now
+
 private:
     ////////////////// Private Attributes ////////////////////
     float weight = UNKNOWN_WEIGHT;
@@ -104,8 +110,5 @@ private:
     enum UnitOfWeight unitOfWeight = POUND;
     bool weightIsKnown = false;
     bool weightHasMax = false;
-
-    ///////////////// Private Member Functions //////////////////
-    void setMaxWeight( float newMaxWeight );
 
 };
