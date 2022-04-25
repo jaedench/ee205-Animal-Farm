@@ -20,8 +20,8 @@ extern bool printAllCats();
 
 extern Cat* findCatByName( const char* name );
 
-extern const char* colorName(const enum Color color);
+//extern const char* colorName(const enum Color color);
 
-extern const char* genderName(const enum Gender gender);
+//extern const char* genderName(const enum Gender gender);
 
 extern const char* breedName(const enum Breed breed);

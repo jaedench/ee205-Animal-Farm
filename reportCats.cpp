@@ -21,7 +21,7 @@
 #include "reportCats.h"
 #include "Cat.h"
 #include "config.h"
-
+/*
 const char* colorName(const enum Color color) {
     switch(color) {
         case 0:
@@ -39,8 +39,8 @@ const char* colorName(const enum Color color) {
     }
     return 0;
 }
-
-
+*/
+/*
 const char* genderName(const enum Gender gender) {
     switch(gender) {
         case 0:
@@ -52,7 +52,7 @@ const char* genderName(const enum Gender gender) {
     }
     return 0;
 }
-
+*/
 
 const char* breedName(const enum Breed breed) {
     switch(breed) {
@@ -72,7 +72,7 @@ const char* breedName(const enum Breed breed) {
     return 0;
 }
 
-
+/*
 bool printAllCats() {
     int currentCats = 0;
 
@@ -102,3 +102,4 @@ Cat* findCatByName(const char* name) {
     std::cout << "No matching cat in database" << std::endl;
     return nullptr;
 }
+ */

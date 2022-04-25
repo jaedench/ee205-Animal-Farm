@@ -25,8 +25,10 @@ enum class Color {
     RED,
     BLUE,
     GREEN,
-    CINNNAMON,
+    CINNAMON,
     CALICO,
+    GINGER,
+    CREAM
 };
 
 /// Output Color as a formatted string
@@ -37,7 +39,7 @@ enum class Color {
 ///
 /// @return `Unknown color`, `Black`, `Brown`, `White`, `Red`, `Blue`, `Green`, `Cinnamon`, or `Calico`.
 inline std::ostream& operator<<( std::ostream& lhs_stream, const Color& rhs_Color ) {
-    switch( rhs_Color ) {
+    switch (rhs_Color) {
         case Color::UNKNOWN_COLOR:
             lhs_stream << "Unknown color";
             break;
@@ -65,8 +67,15 @@ inline std::ostream& operator<<( std::ostream& lhs_stream, const Color& rhs_Colo
         case Color::CALICO:
             lhs_stream << "Calico";
             break;
+        case Color::GINGER:
+            lhs_stream << "Ginger";
+            break;
+        case Color::CREAM:
+            lhs_stream << "Cream";
+            break;
         default:
             /// @throw out_of_range If the enum is not mapped to a string.
-            throw std::out_of_range( PROGRAM_TITLE ": Color not mapped to a string" );
+            throw std::out_of_range(PROGRAM_TITLE ": Color not mapped to a string");
     }
+    return lhs_stream;
 }

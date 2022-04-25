@@ -21,6 +21,10 @@
 
 using namespace std;
 
+const std::string Cat::SPECIES_NAME = "Felis Catus";
+const Weight::t_weight Cat::MAX_WEIGHT = 40;
+
+/*
 void Cat::zeroOutMemberData() {
     memset( name, 0, MAX_CAT_NAME);
     gender = UNKNOWN_GENDER; // note: the unknown values are set to 0
@@ -29,12 +33,14 @@ void Cat::zeroOutMemberData() {
     weight = UNKNOWN_WEIGHT;
     next = nullptr;
 }
+ */
 
 //CONSTRUCTORS AND DESTRUCTORS
-// constructor with no values, which means default values
+/* constructor with no values, which means default values
 Cat::Cat() {
     zeroOutMemberData();
 }
+
 
 // constructor with the bare minimum for a valid cat
 Cat::Cat(const char *newName, const Gender newGender, const Breed newBreed, const t_weight newWeight) : Cat() {
@@ -48,18 +54,19 @@ Cat::Cat(const char *newName, const Gender newGender, const Breed newBreed, cons
 Cat::~Cat() {
     zeroOutMemberData();
 }
+ */
 
 // GETTERS AND SETTERS
 //Name
-const char *Cat::getName() const noexcept {
+std::string Cat::getName() const noexcept {
     return name;
 }
 
-void Cat::setName(const char* newName) {
-    memset( name, 0, MAX_CAT_NAME ); // zero out old name
-    strcpy( name, newName ); // set new name
+void Cat::setName( const std::string& newName ) {
+    assert( validateName( newName ) );
+    name = newName;
 }
-
+/*
 //Gender
 Gender Cat::getGender() const noexcept{
     return gender;
@@ -71,7 +78,9 @@ void Cat::setGender(Gender newGender) {
     }
     Cat::gender = newGender;
 }
+*/
 
+/*
 //Breed
 Breed Cat::getBreed() const noexcept {
     return breed;
@@ -83,6 +92,7 @@ void Cat::setBreed(Breed newBreed) {
     }
     Cat::breed = newBreed;
 }
+ */
 
 //Fixed
 bool Cat::isCatFixed() const noexcept {
@@ -92,7 +102,7 @@ bool Cat::isCatFixed() const noexcept {
 void Cat::fixCat() noexcept {
     Cat::isFixed = true;
 }
-
+/*
 //Weight
 t_weight Cat::getWeight() const noexcept {
     return weight;
@@ -101,24 +111,49 @@ t_weight Cat::getWeight() const noexcept {
 void Cat::setWeight(t_weight newWeight) {
     Cat::weight = newWeight;
 }
+*/
 
 //VALIDATION
-bool Cat::validateName(const char *newName) {
-    if( newName == nullptr ) {
-        throw invalid_argument( PROGRAM_TITLE ": name cannot be NULL");
+bool Cat::validateName( const std::string& newName ) {
+    if( newName.empty() ) {
+        throw invalid_argument( PROGRAM_TITLE ": name cannot be empty");
     }
 
-    if( strlen( newName )  <= 0 ) {
+    if( newName.length()  <= 0 ) {
         throw length_error(PROGRAM_TITLE ": name must be greater than 0 charactes in length");
     }
-
-    if( strlen( newName ) >= MAX_CAT_NAME ) {
+/*
+    if( newName.length() >= MAX_CAT_NAME ) {
         throw length_error( PROGRAM_TITLE ": name must be less than MAX_CAT_NAME.");
     }
-
+*/
     return true;
 }
 
+std::string Cat::speak() const noexcept {
+    return "Meow";
+}
+
+void Cat::dump() const noexcept {
+    Mammal::dump();
+    std::string className = "Cat";
+    FORMAT_LINE_FOR_DUMP( className, "name" ) << Cat::getName() << std::endl;
+    FORMAT_LINE_FOR_DUMP( className, "isFixed" ) << Cat::isFixed << std::endl;
+}
+
+bool Cat::validate() const noexcept {
+    if( !validateName( Cat ::name )) {
+        return false;
+    }
+    if( !Animal::validate() ) {
+        return false;
+    }
+    return true;
+}
+
+
+
+/*
 bool Cat::validateGender(const Gender newGender) {
     if( newGender == UNKNOWN_GENDER ) {
         throw invalid_argument(PROGRAM_TITLE ": The cat's gender must be known.");
@@ -179,4 +214,4 @@ bool Cat::print() const noexcept {
 
     return true ;
 }
-
+*/

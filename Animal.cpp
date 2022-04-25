@@ -18,6 +18,7 @@
 #include "Animal.h"
 #include "Gender.h"
 #include "Weight.h"
+#include "List.h"
 
 ///////////// Constants /////////////////
 const std::string Animal::KINGDOM_NAME = "Animalia";
@@ -134,14 +135,14 @@ void Animal::setGender(const Gender newGender) {
 // dump
 void Animal::dump() const noexcept {
     Node::dump();
-    FORMAT_LINE_FOR_DUMP( "Animal", "this" )           << this                << std::endl ;
-    FORMAT_LINE_FOR_DUMP( "Animal", "kingdom" )        << getKingdom()        << std::endl ;
-    FORMAT_LINE_FOR_DUMP( "Animal", "classification" ) << getClassification() << std::endl;
-    FORMAT_LINE_FOR_DUMP( "Animal", "species" )        << getSpecies()        << std::endl ;
-    FORMAT_LINE_FOR_DUMP( "Animal", "gender" )         << getGender()         << std::endl ;
-    FORMAT_LINE_FOR_DUMP( "Animal", "weight" )         << getWeight() << " out of " << weight.getMaxWeight() << weight.getWeightUnit() << std::endl;
-    FORMAT_LINE_FOR_DUMP( "Animal", "species" )        << getSpecies()        << std::endl ;
+    FORMAT_LINE_FOR_DUMP("Animal", "this") << this << std::endl;
+    FORMAT_LINE_FOR_DUMP("Animal", "kingdom") << getKingdom() << std::endl;
+    FORMAT_LINE_FOR_DUMP("Animal", "classification") << getClassification() << std::endl;
+    FORMAT_LINE_FOR_DUMP("Animal", "species") << getSpecies() << std::endl;
+    FORMAT_LINE_FOR_DUMP("Animal", "gender") << getGender() << std::endl;
+    weight.dump();
 }
+
 
 // validate
 bool Animal::validate() const noexcept {

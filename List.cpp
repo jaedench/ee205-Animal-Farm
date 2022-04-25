@@ -69,6 +69,8 @@ void List::deleteAllNodes() noexcept {
     #endif
 
     assert( validate() );
+
+    std::cout << "SinglyLinkedList: [" << count << "]" << std::endl;
 }
 
 bool List::validate() const noexcept {

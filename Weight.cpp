@@ -246,6 +246,8 @@ std::ostream& operator<<( std::ostream& lhs_stream, const Weight::UnitOfWeight r
 
 ///////////////// Dump ////////////////////
 void Weight::dump() const noexcept{
+    std::cout << std::setw(8) << "Animal" << std::setw(20) << "weight" << getWeight() << " out of "<< getMaxWeight() << " " << getWeightUnit() << std::endl;
+    /*
     std::cout << std::setw(80) << std::setfill( '=' ) << "" << std::endl ;
     std::cout << std::setfill( ' ' ) ;
     std::cout << std::left ;
@@ -256,4 +258,5 @@ void Weight::dump() const noexcept{
     FORMAT_LINE( "Weight", "unitOfWeight" ) << getWeightUnit() << std::endl ;
     FORMAT_LINE( "Weight", "hasMax" )       << hasMaxWeight()  << std::endl ;
     FORMAT_LINE( "Weight", "maxWeight" )    << maxWeight       << std::endl ;
+     */
 }

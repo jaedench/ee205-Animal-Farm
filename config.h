@@ -37,12 +37,9 @@
  << std::setw(20) << (member) \
  << std::setw(52) /* (data) */
 
-typedef float t_weight;
 
-enum Gender {UNKNOWN_GENDER, MALE, FEMALE};
+//enum Gender {UNKNOWN_GENDER, MALE, FEMALE};
 
 enum Breed {UNKNOWN_BREED, MAINE_COON, MANX, SHORTHAIR, PERSIAN, SPHYNX};
 
-enum Color {BLACK, WHITE, RED, BLUE, GREEN, PINK};
-
-const t_weight UNKNOWN_WEIGHT = -1 ;
+//enum Color {BLACK, WHITE, RED, BLUE, GREEN, PINK};
