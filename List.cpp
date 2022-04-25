@@ -70,3 +70,12 @@ void List::deleteAllNodes() noexcept {
 
     assert( validate() );
 }
+
+bool List::validate() const noexcept {
+    if( head == nullptr ) {
+        assert(size() == 0);
+    } else {
+        assert(size() != 0);
+    }
+    return true;
+}
