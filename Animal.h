@@ -57,9 +57,9 @@ public:   ///////////////////// Getters & Setters /////////////////////////////
     std::string getClassification() const noexcept;  ///< Get the classification
     std::string getSpecies() const noexcept;         ///< Get the species
 
-    Gender getGender() const noexcept;  ///< Get the Animal's Gender
+    Gender getGender() const noexcept;              ///< Get the Animal's Gender
 
-    Weight::t_weight getWeight() const noexcept; ///< Get the Animal's Weight
+    Weight::t_weight getWeight() const noexcept;    ///< Get the Animal's Weight
 
     // Setters.
     void setWeight( const Weight::t_weight newWeight );  ///< Set the Animal's Weight

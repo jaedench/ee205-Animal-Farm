@@ -52,13 +52,13 @@ public:
 
     /////////////////// Public Member Functions ////////////////////
     //////////////// Constructors //////////////////
-    Weight() noexcept;      /// A default weight.
-    Weight( float newWeight );      /// A weight with a value.
-    Weight( UnitOfWeight newUnitOfWeight ) noexcept;    /// A weight with a UnitOfWeight.
-    Weight( float newWeight, UnitOfWeight newUnitOfWeight);     /// A weight with a value and a UnitOfWeight.
-    Weight( float newWeight, float newMaxWeight);   /// A weight with a UnitOfWeight and a maximum weight.
-    Weight( UnitOfWeight newUnitOfWeight, float newMaxWeight);    /// A weight with a UnitOfWeight and a maximum weight.
-    Weight( float newWeight, UnitOfWeight newUnitOfWeight, float newMaxWeight);     /// A weight with a value, UnitOfWeight and a maximum weight.
+    Weight() noexcept;                                         /// A default weight.
+    Weight( float newWeight );                                 /// A weight with a value.
+    Weight( UnitOfWeight newUnitOfWeight ) noexcept;           /// A weight with a UnitOfWeight.
+    Weight( float newWeight, UnitOfWeight newUnitOfWeight);    /// A weight with a value and a UnitOfWeight.
+    Weight( float newWeight, float newMaxWeight);              /// A weight with a UnitOfWeight and a maximum weight.
+    Weight( UnitOfWeight newUnitOfWeight, float newMaxWeight); /// A weight with a UnitOfWeight and a maximum weight.
+    Weight( float newWeight, UnitOfWeight newUnitOfWeight, float newMaxWeight);   /// A weight with a value, UnitOfWeight and a maximum weight.
 
 
     ////////////// Getters and Setters ///////////////
@@ -93,7 +93,7 @@ public:
 
     bool operator<( const Weight& rhs_Weight ) const; /// Compare two weights.
 
-    Weight& operator+=( float rhs_addToWeight ); /// Add to existing weight and assume rhs_addToWeight is in the same units as Weight.
+    Weight& operator+=( float rhs_addToWeight );     /// Add to existing weight and assume rhs_addToWeight is in the same units as Weight.
 
 
     //////////////// Dump /////////////////

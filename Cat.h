@@ -34,7 +34,7 @@ public: ///////////// Constants //////////////////
 
 protected:  ///////////////////////// Member Variables /////////////////////////
     std::string name ;        ///< The name of the cat
-    bool        isFixed ;  ///< `true` if the cat is fixed/neutered
+    bool isFixed ;            ///< `true` if the cat is fixed/neutered
 
 public:  //////////////////////////// Constructors /////////////////////////////
     /// Create a Cat with the minimum fields necessary to have a valid Cat
@@ -68,12 +68,11 @@ public:  //////////////////////////// Constructors /////////////////////////////
     }
 
 public:  ////////////////////////// Getters & Setters //////////////////////////
-    std::string getName() const noexcept ;  ///< Get the Cat's name
-    void setName( const std::string& newName );   ///< Set the Cat's name.  The name
-    ///< must not be empty.
+    std::string getName() const noexcept ;        ///< Get the Cat's name
+    void setName( const std::string& newName );   ///< Set the Cat's name.  The name must not be empty.
 
     bool isCatFixed() const noexcept ;      ///< Return `true` if the cat is fixed/neutered
-    void fixCat() noexcept ;             ///< Spay or neuter the cat
+    void fixCat() noexcept ;                ///< Spay or neuter the cat
 
 public:  /////////////////////////// Public Methods ////////////////////////////
     std::string speak() const noexcept override;  ///< Say `Meow`.
@@ -85,6 +84,9 @@ public:  /////////////////////// Static Public Methods /////////////////////////
     static bool validateName( const std::string& newName ) ;  ///< Check if `newName` is valid
 };
 
+
+
+// ========================================= Old Code ===============================================
 /*
 private:  ///////////////////////// Member Variables /////////////////////////
 char name[MAX_CAT_NAME];  ///< Cat's name

@@ -22,12 +22,6 @@
 #include <string.h>
 
 #include "config.h"
-#include "catDatabase.h"
-#include "addCats.h"
-#include "reportCats.h"
-#include "updateCats.h"
-#include "deleteCats.h"
-#include "catValidation.h"
 #include "Cat.h"
 #include "SinglyLinkedList.h"
 

@@ -15,8 +15,6 @@
 #include <cassert>
 
 #include "config.h"
-#include "reportCats.h"
-#include "catDatabase.h"
 #include "Cat.h"
 
 using namespace std;
