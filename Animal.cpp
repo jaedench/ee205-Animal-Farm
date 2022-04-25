@@ -20,7 +20,7 @@
 #include "Weight.h"
 
 ///////////// Constants /////////////////
-const std::string KINGDOM_NAME = "Animalia";
+const std::string Animal::KINGDOM_NAME = "Animalia";
 
 /////////////// Constructors ///////////////////
 // Minimum fields.
@@ -72,10 +72,12 @@ void Animal::setWeight(const Weight::t_weight newWeight) {
 bool Animal::validateClassification(const std::string &checkClassification) noexcept {
     // Classification cannot be empty
     if( checkClassification.empty()) {
-        throw std::invalid_argument(PROGRAM_NAME ": Classification cannot be empty.");
+        return false;
+        // std::cout << PROGRAM_NAME << ": Classification cannot be empty." << std::endl;
     }
+#ifdef DEBUG
     // compare strings using animal classes
-    if( checkClassification.compare("Mammalia")==0) {
+    if( checkClassification.compare("Mammalian")==0) {
         return true;
     }
     if( checkClassification.compare("Vermes")==0) {
@@ -87,20 +89,34 @@ bool Animal::validateClassification(const std::string &checkClassification) noex
     if( checkClassification.compare("Pisces")==0) {
         return true;
     }
-    if( checkClassification.compare("Amphibia")==0) {
+    if( checkClassification.compare("Amphibians")==0) {
         return true;
     }
     if( checkClassification.compare("Aves")==0) {
         return true;
     }
+    if( checkClassification.compare("Agnatha")==0) {
+        return true;
+    }
+    if( checkClassification.compare("Chrondrichtyes")==0) {
+        return true;
+    }
+    if( checkClassification.compare("Osteichthyes")==0) {
+        return true;
+    }
+    if( checkClassification.compare("Reptilia")==0) {
+        return true;
+    }
     std::cout << checkClassification << "is not an animal class." << std::endl;
-    return false;
+#endif
+    return true;
 }
 
 bool Animal::validateSpecies(const std::string &checkSpecies) noexcept {
     // Species cannot be empty
     if( checkSpecies.empty()) {
-        throw std::invalid_argument(PROGRAM_NAME ": Species cannot be empty.");
+        return false;
+        //std::cout << PROGRAM_NAME << ": Species cannot be empty." << std::endl;
     }
     return true;
 }
@@ -132,7 +148,7 @@ bool Animal::validate() const noexcept {
     if( !validateClassification( getClassification())) {
         return false;
     }
-    if( !validateSpecies( getSpecies )) {
+    if( !validateSpecies( getSpecies() )) {
         return false;
     }
     if(KINGDOM_NAME.compare("Animalia")!=0) {

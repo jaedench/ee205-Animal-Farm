@@ -18,15 +18,7 @@
 
 const std::string Mammal::MAMMAL_NAME = "Mammalia";
 
-Color Mammal::getColor() const noexcept {
-    return Mammal::color;
-}
-
-void Mammal::setColor(const Color newColor) noexcept {
-    color = Mammal::color;
-}
-
 void Mammal::dump() const noexcept {
     Animal::dump();
-    FORMAT_LINE_FOR_DUMP( "Mammal", "color") << Mammal::getColor() << std::endl;
+    FORMAT_LINE_FOR_DUMP( "Mammal", "color") << getColor() << std::endl;
 }

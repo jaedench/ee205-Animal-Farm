@@ -29,6 +29,7 @@
 #include "deleteCats.h"
 #include "catValidation.h"
 #include "Cat.h"
+#include "SinglyLinkedList.h"
 
 using namespace std;
 
@@ -36,37 +37,29 @@ using namespace std;
 #define MAX_NAME2    "DIFFERENT 123456789012345678901234567890123456789"
 #define ILLEGAL_NAME "12345678901234567890123456789012345678901234567890"
 
-//#define DEBUG
+// #define DEBUG
 
 int main() {
-    // RELEASE MAIN
-    cout << "Starting " << PROGRAM_TITLE << endl;
-
-    initializeDatabase();
-
-    bool result; //result is true if add cat succeeds
-    result = addCat( new Cat( "Loki",  MALE,   PERSIAN,    1.0 ));
-    assert(result);
-    if( !result ) {
-        throw logic_error(PROGRAM_TITLE ": addCat() failed");
+    cout << "Starting " << PROGRAM_TITLE << endl ;
+    SinglyLinkedList catDB ;
+    catDB.push_front( new Cat( "Loki", Color::CREAM, true, Gender::MALE, 1.0 ) ) ;
+    catDB.push_front( new Cat( "Milo", Color::BLACK, true, Gender::MALE, 1.1 ) ) ;
+    catDB.push_front( new Cat( "Bella", Color::BROWN, true, Gender::FEMALE, 1.2 ) ) ;
+    catDB.push_front( new Cat( "Kali", Color::CALICO, true, Gender::FEMALE, 1.3 ) ) ;
+    catDB.push_front( new Cat( "Trin", Color::WHITE, true, Gender::FEMALE, 1.4 ) ) ;
+    catDB.insert_after(catDB.get_first(), new Cat( "Chili", Color::GINGER, true,
+                                                   Gender::MALE, 1.5 ) );
+    for( Animal* pAnimal = (Animal*)catDB.get_first() ; pAnimal != nullptr ; pAnimal =
+                                                                                     (Animal*)List::get_next( (Node*)pAnimal ) ) {
+        cout << pAnimal->speak() << endl;
     }
-    result = addCat( new Cat( "Milo",  MALE,   MANX,       1.1 )) ;
-    assert(result);
-    result = addCat( new Cat( "Bella", FEMALE, MAINE_COON, 1.2 )) ;
-    assert(result);
-    result = addCat( new Cat( "Kali",  FEMALE, SHORTHAIR,  1.3 )) ;
-    assert(result);
-    result = addCat( new Cat( "Trin",  FEMALE, MANX,       1.4 )) ;
-    assert(result);
-    result = addCat( new Cat( "Chili", MALE,   SHORTHAIR,  1.5 )) ;
-    assert(result);
+    catDB.validate() ;
+    catDB.dump() ;
+    catDB.deleteAllNodes() ;
+    catDB.dump() ;
+    cout << "Done with " << PROGRAM_TITLE ;
+    return( EXIT_SUCCESS ) ;
 
-    printAllCats();
-
-    deleteAllCats();
-
-    printAllCats();
-    // END RELEASE MAIN
 
     //DEBUG MAIN
     #ifdef DEBUG
@@ -155,8 +148,4 @@ int main() {
        }
     #endif
     // END DEBUG MAIN
-
-    std::cout << "Done with " PROGRAM_TITLE << "\n" << std::endl;
-
-    return( EXIT_SUCCESS ) ;
 }

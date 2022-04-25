@@ -8,7 +8,7 @@
 /// @author Jaeden Chang <jaedench@hawaii.edu>
 /// @date   19_Mar_2022
 ///////////////////////////////////////////////////////////////////////////////
-
+/*
 #include <iostream>
 #include <cassert>
 
@@ -50,3 +50,4 @@ bool addCat(Cat* newCat) {
 
     return true;
 }
+ */

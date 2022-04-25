@@ -8,9 +8,10 @@
 /// @author Jaeden Chang <jaedench@hawaii.edu>
 /// @date   19_Mar_2022
 ///////////////////////////////////////////////////////////////////////////////
-
+/*
 #pragma once
 
 extern bool deleteCat( Cat* deletingCat );
 
 extern bool deleteAllCats();
+ */

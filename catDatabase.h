@@ -8,7 +8,7 @@
 /// @author Jaeden Chang <jaedench@hawaii.edu>
 /// @date   19_Mar_2022
 ///////////////////////////////////////////////////////////////////////////////
-
+/*
 #pragma once
 
 #include <stdexcept>  // For logic_error
@@ -33,3 +33,4 @@ extern bool isCatInDatabase( const Cat* aCat );
 
 extern bool validateDatabase();
 
+*/
