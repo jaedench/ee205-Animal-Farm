@@ -78,7 +78,7 @@ bool Animal::validateClassification(const std::string &checkClassification) noex
     }
 #ifdef DEBUG
     // compare strings using animal classes
-    if( checkClassification.compare("Mammalian")==0) {
+    if( checkClassification.compare("Mammalia")==0) {
         return true;
     }
     if( checkClassification.compare("Vermes")==0) {
@@ -90,7 +90,7 @@ bool Animal::validateClassification(const std::string &checkClassification) noex
     if( checkClassification.compare("Pisces")==0) {
         return true;
     }
-    if( checkClassification.compare("Amphibians")==0) {
+    if( checkClassification.compare("Amphibia")==0) {
         return true;
     }
     if( checkClassification.compare("Aves")==0) {
@@ -108,7 +108,7 @@ bool Animal::validateClassification(const std::string &checkClassification) noex
     if( checkClassification.compare("Reptilia")==0) {
         return true;
     }
-    std::cout << checkClassification << "is not an animal class." << std::endl;
+    std::cout << checkClassification << " is not an animal class." << std::endl;
 #endif
     return true;
 }

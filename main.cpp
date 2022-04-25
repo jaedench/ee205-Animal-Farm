@@ -22,8 +22,18 @@
 #include <string.h>
 
 #include "config.h"
+#include "Animal.h"
+#include "Breed.h"
 #include "Cat.h"
+#include "Color.h"
+#include "Gender.h"
+#include "List.h"
+#include "Mammal.h"
+#include "Node.h"
 #include "SinglyLinkedList.h"
+#include "Weight.h"
+
+//#define DEBUG
 
 using namespace std;
 
@@ -52,94 +62,79 @@ int main() {
     catDB.deleteAllNodes() ;
     catDB.dump() ;
     cout << "Done with " << PROGRAM_TITLE ;
-    return( EXIT_SUCCESS ) ;
+    //return( EXIT_SUCCESS ) ;
 
 
     //DEBUG MAIN
-    #ifdef DEBUG
-    {
-        // Verify that a cat's default values are set
-        Cat testCat = Cat();
-        assert(testCat.getName() != nullptr);
-        assert(strcmp(testCat.getName(), "") == 0);
-        assert(testCat.getGender() == UNKNOWN_GENDER);
-        assert(testCat.getBreed() == UNKNOWN_BREED);
-        assert(testCat.isCatFixed() == false);
-        assert(testCat.getWeight() == UNKNOWN_WEIGHT);
-        assert(!testCat.isCatFixed());
-        assert(!testCat.validate());  // The default cat is invalid
+#ifdef DEBUG
+    // testing Color switch statement
+    cout << Color::UNKNOWN_COLOR << endl;
+    cout << Color::BLACK << endl;
+    cout << Color::BROWN << endl;
+    cout << Color::WHITE << endl;
+    cout << Color::RED << endl;
+    cout << Color::BLUE << endl;
+    cout << Color::GREEN << endl;
+    cout << Color::GINGER << endl;
+    cout << Color::CREAM << endl;
+    cout << Color::CINNAMON << endl;
+    cout << Color::CALICO << endl;
+    cout << Color::GINGER << endl;
+    cout << Color::CREAM << endl;
 
-          // Test for NULL name
-          try {
-             testCat.setName(nullptr);
-             assert(false); // We should never get here
-          } catch (exception const &e) {}
+    // testing Breed switch statement
+    cout << Breed::UNKNOWN_BREED << endl;
+    cout << Breed::MAINE_COON << endl;
+    cout << Breed::MANX << endl;
+    cout << Breed::SHORTHAIR << endl;
+    cout << Breed::PERSIAN << endl;
+    cout << Breed::SPHYNX << endl;
 
-          // Test for empty name
-          try {
-             testCat.setName("");
-             assert(false); // We should never get here
-          } catch (exception const &e) {}
+    Node testNodeA;
+    testNodeA.dump();
 
-          // Test valid names
-          testCat.setName("A");       // A 1 character name is valid
-          testCat.setName(MAX_NAME1); // A MAX_NAME1 name is valid
+    Node testNodeB;
+    testNodeB.dump();
 
-          // Test for name too large
-          try {
-             testCat.setName(ILLEGAL_NAME);
-             assert(false); // We should never get here
-          } catch (exception const &e) {}
+    // testing SinglyLinkedList functions
+    SinglyLinkedList testList;
+    assert(testList.validate());
 
-          testCat.setGender(FEMALE);
+    testList.push_front( &testNodeA );
+    cout << "After push_front:" << endl;
+    testList.dump();
+    assert(testList.size() == 1);
+    assert(testList.validate());
 
-          try {
-             testCat.setGender(MALE);
-             assert(false); // We should never get here
-          } catch (exception const &e) {}
+    testList.push_front( &testNodeB );
+    cout << "After second push_front:" << endl;
+    testList.dump();
+    assert(testList.size() == 2);
+    assert(testList.validate());
 
-          testCat.setBreed(MAINE_COON);
+    testList.insert_after( &testNodeB, new Node);
+    cout << "After insert_after:" << endl;
+    testList.dump();
+    assert(testList.size() == 3);
+    assert(testList.validate());
 
-          try {
-             testCat.setBreed(MANX);
-             assert(false); // We should never get here
-          } catch (exception const &e) {}
+    testList.pop_front();
+    cout << "After first pop_front:" << endl;
+    testList.dump();
+    assert(testList.size() == 2);
+    assert(testList.validate());
 
-          testCat.fixCat();
-          assert(testCat.isCatFixed());
+    testList.pop_front();
+    cout << "After second pop_front:" << endl;
+    testList.dump();
+    assert(testList.size() == 1);
+    assert(testList.validate());
 
-          // Test for Weight <= 0
-          try {
-             testCat.setWeight(0);
-             assert(false); // We should never get here
-          } catch (exception const &e) {}
-
-          testCat.setWeight(1.0 / 1024);
-          assert(testCat.getWeight() == 1.0 / 1024);
-
-          assert(testCat.validate());  // The cat should now be valid
-          testCat.print() ;
-
-          assert(!isCatInDatabase(&testCat)) ;
-       }
-    #endif
-
-    #ifdef DEBUG
-        {
-          // Test finding a cat...
-          Cat *bella = findCatByName("Bella");
-          assert(bella != nullptr);
-          // Test not finding a cat
-          assert(findCatByName("Bella's not here") == nullptr);
-
-          // Test deleting a cat...
-          assert(deleteCat(bella) == true);
-          try {
-             deleteCat(bella); // Verify that Bella's not there
-          } catch (exception const &e) {}
-
-          bella = nullptr;
-       }
+    testList.pop_front();
+    cout << "After third pop_front:" << endl;
+    testList.dump();
+    assert(testList.size() == 0);
+    assert(testList.validate());
     #endif
     // END DEBUG MAIN
 }

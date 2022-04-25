@@ -51,7 +51,7 @@ public:  //////////////////////////// Constructors /////////////////////////////
     }
 
     /// Create a Cat, populating *all* of the member variables
-    Cat( const std::string&     newName
+    Cat( const std::string&         newName
             ,const Color            newColor
             ,const bool             newIsFixed
             ,const Gender           newGender
