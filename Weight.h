@@ -14,7 +14,7 @@
 #include <iostream>
 #include <string>
 
-#define PROGRAM_TITLE "Animal Farm 2"
+#define PROGRAM_TITLE "Animal Farm 3"
 
 class Weight {
 public:
