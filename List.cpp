@@ -70,7 +70,7 @@ void List::deleteAllNodes() noexcept {
 
     assert( validate() );
 
-    std::cout << "SinglyLinkedList: [" << count << "]" << std::endl;
+    std::cout << "SinglyLinkedList: head=[" << count << "]" << std::endl;
 }
 
 bool List::validate() const noexcept {

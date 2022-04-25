@@ -37,7 +37,7 @@ enum class Color {
 ///
 /// @param rhs_Color The Color to output. `rhs` stands for Right Hand Side and means the right side of the `<<` operator.
 ///
-/// @return `Unknown color`, `Black`, `Brown`, `White`, `Red`, `Blue`, `Green`, `Cinnamon`, or `Calico`.
+/// @return `Unknown color`, `Black`, `Brown`, `White`, `Red`, `Blue`, `Green`, `Cinnamon`, `Calico`, `Ginger`, or `Cream`.
 inline std::ostream& operator<<( std::ostream& lhs_stream, const Color& rhs_Color ) {
     switch (rhs_Color) {
         case Color::UNKNOWN_COLOR:
