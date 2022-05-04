@@ -39,7 +39,7 @@ using namespace std;
 #define MAX_NAME2    "DIFFERENT 123456789012345678901234567890123456789"
 #define ILLEGAL_NAME "12345678901234567890123456789012345678901234567890"
 
-//#define DEBUG
+//#define DEBUG1
 
 int main() {
     cout << "Starting " << PROGRAM_TITLE << endl ;
@@ -64,7 +64,7 @@ int main() {
 
 
     //DEBUG MAIN
-#ifdef DEBUG
+#ifdef DEBUG1
     // testing Color switch statement
     cout << Color::UNKNOWN_COLOR << endl;
     cout << Color::BLACK << endl;
